@@ -1,58 +1,72 @@
-<nav class="bg-gray-900 text-white fixed top-0 w-full z-50 shadow">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<!-- NAVBAR -->
+<nav class="bg-[#d3c7b6] text-[#756c59] fixed top-0 w-full z-50 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
     <!-- Logo -->
-    <a class="text-lg font-semibold"> Handmade Shop </a>
+    <a class="text-3xl md:text-4xl text-[#756c59] tracking-wide flex items-center gap-2 hover:opacity-80 transition cursor-pointer" style="font-family: 'Crafty Girls', cursive;">
+      Handmade Shop
+    </a>
 
     <!-- Search -->
     <form class="flex gap-2">
       <input 
         type="search" 
         placeholder="Buscar..." 
-        class="px-3 py-1 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="px-3 py-1 rounded-lg border border-[#bfc4ab] bg-[#efe8da] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
       >
-      <button class="px-3 py-1 border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white transition">
+      <button class="px-3 py-1 bg-[#8d917b] text-white rounded-lg hover:bg-[#756c59] transition">
         Buscar
       </button>
     </form>
 
     <!-- Links -->
-    <div class="flex gap-4">
-      <a class="hover:text-blue-400 transition cursor-pointer"> Carrito </a>
-      <a class="hover:text-blue-400 transition cursor-pointer"> Login </a>
+    <div class="flex gap-6">
+      <a class="hover:opacity-80 transition cursor-pointer"> Carrito </a>
+      <a class="hover:opacity-80 transition cursor-pointer"> Login </a>
     </div>
 
   </div>
 </nav>
 
-<div class="pt-20 px-6">
+<!-- CONTENIDO -->
+<div class="bg-[#efe8da] min-h-screen pt-24 px-6">
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-    <div *ngFor="let p of products" 
-         class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
+    <div *ngFor="let p of products" class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
 
-      <!-- Imagen -->
-      <img 
-        src="{{ p.urlImage }}" 
-        class="w-full h-48 object-cover rounded-md mb-4"
-      />
+      <!-- Imagen + overlay -->
+      <div class="relative overflow-hidden">
 
-      <!-- Nombre -->
-      <h2 class="text-lg font-semibold text-gray-800 mb-2">
-        {{ p.name }}
-      </h2>
+        <img 
+          src="{{ p.urlImage }}" 
+          class="w-full h-56 object-cover transition duration-500 group-hover:scale-110"
+        />
 
-      <!-- Precio -->
-      <p class="text-blue-600 font-bold mb-4">
-        {{ p.price | number:'1.2-2' }} €
-      </p>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-[#756c59]/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
 
-      <!-- Botón -->
-      <button 
-        class="mt-auto bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
-        Ver producto
-      </button>
+          <button 
+            class="bg-white text-[#756c59] hover:bg-[#efe8da] px-4 py-2 rounded-xl font-medium shadow hover:bg-white transition">
+            Ver producto
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Info -->
+      <div class="p-4">
+
+        <h2 class="text-sm font-medium text-[#756c59] leading-snug">
+          {{ p.name }}
+        </h2>
+
+        <p class="text-[#8d917b] font-semibold mt-2">
+          {{ p.price | number:'1.2-2' }} €
+        </p>
+
+      </div>
 
     </div>
 
@@ -60,6 +74,8 @@
 
 </div>
 
-<footer class="bg-black text-white text-center py-6 mt-10">
+
+<!-- FOOTER -->
+<footer class="bg-[#756c59] text-[#efe8da] text-center py-6 mt-10">
   <p>© Handmade Shop 2026</p>
 </footer>

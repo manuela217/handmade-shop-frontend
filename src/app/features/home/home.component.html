@@ -1,16 +1,65 @@
-<table>
-    <thead>
-        <tr>
-            <th scope="col"> Id </th>
-            <th scope="col"> Nombre </th>
-            <th scope="col"> Precio </th>
-        </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of products">
-        <th>{{ p.id }}</th>
-        <td>{{ p.name }}</td>
-        <td>{{ p.price }}</td>
-      </tr>
-    </tbody>
-</table>
+<nav class="bg-gray-900 text-white fixed top-0 w-full z-50 shadow">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a class="text-lg font-semibold"> Handmade Shop </a>
+
+    <!-- Search -->
+    <form class="flex gap-2">
+      <input 
+        type="search" 
+        placeholder="Buscar..." 
+        class="px-3 py-1 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+      <button class="px-3 py-1 border border-green-500 text-green-500 rounded hover:bg-green-500 hover:text-white transition">
+        Buscar
+      </button>
+    </form>
+
+    <!-- Links -->
+    <div class="flex gap-4">
+      <a class="hover:text-blue-400 transition cursor-pointer"> Carrito </a>
+      <a class="hover:text-blue-400 transition cursor-pointer"> Login </a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="pt-20 px-6">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    <div *ngFor="let p of products" 
+         class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col">
+
+      <!-- Imagen -->
+      <img 
+        src="{{ p.urlImage }}" 
+        class="w-full h-48 object-cover rounded-md mb-4"
+      />
+
+      <!-- Nombre -->
+      <h2 class="text-lg font-semibold text-gray-800 mb-2">
+        {{ p.name }}
+      </h2>
+
+      <!-- Precio -->
+      <p class="text-blue-600 font-bold mb-4">
+        {{ p.price | number:'1.2-2' }} €
+      </p>
+
+      <!-- Botón -->
+      <button 
+        class="mt-auto bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
+        Ver producto
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="bg-black text-white text-center py-6 mt-10">
+  <p>© Handmade Shop 2026</p>
+</footer>

@@ -7,9 +7,10 @@ import { HomeComponent } from './features/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Navbar } from './shared/components/navbar/navbar.component';
 import { Footer } from './shared/components/footer/footer.component';
+import { ProductListComponent } from './features/products/product-list/product-list.component';
 
 @NgModule({
-  declarations: [App, HomeComponent, Navbar, Footer],
+  declarations: [App, HomeComponent, Navbar, Footer, ProductListComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

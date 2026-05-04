@@ -34,52 +34,41 @@
   
         <!-- Header -->
         <thead class="bg-[#d3c7b6] text-[#756c59]">
-          <tr>
-            <th class="px-6 py-3">Código</th>
-            <th class="px-6 py-3">Nombre</th>
-            <th class="px-6 py-3">Descripción</th>
-            <th class="px-6 py-3">Precio</th>
-            <th class="px-6 py-3 text-center">Editar</th>
-            <th class="px-6 py-3 text-center">Eliminar</th>
-          </tr>
+            <tr>
+                <th class="px-6 py-3">Código</th>
+                <th class="px-6 py-3">Nombre</th>
+                <th class="px-6 py-3">Descripción</th>
+                <th class="px-6 py-3">Precio</th>
+                <th class="px-6 py-3 text-center">Editar</th>
+                <th class="px-6 py-3 text-center">Eliminar</th>
+            </tr>
         </thead>
   
         <!-- Body -->
         <tbody class="divide-y divide-gray-100">
   
-          <tr *ngFor="let p of products" class="hover:bg-[#efe8da] transition">
-  
-            <td class="px-6 py-4">{{ p.code }}</td>
-  
-            <td class="px-6 py-4 text-[#756c59] font-medium">
-              {{ p.name }}
-            </td>
-  
-            <td class="px-6 py-4 text-[#8d917b]">
-              {{ p.description }}
-            </td>
-  
-            <td class="px-6 py-4 font-semibold text-[#756c59]">
-              {{ p.price | number:'1.2-2' }} €
-            </td>
-  
-            <!-- Editar -->
-            <td class="px-6 py-4 text-center">
-              <button 
-                class="bg-[#bfc4ab] text-[#756c59] px-3 py-1 rounded-md hover:bg-[#8d917b] hover:text-white transition">
-                Editar
-              </button>
-            </td>
-  
-            <!-- Eliminar -->
-            <td class="px-6 py-4 text-center">
-              <button 
-                class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition">
-                Eliminar
-              </button>
-            </td>
-  
-          </tr>
+            <tr *ngFor="let producto of products" class="hover:bg-[#efe8da] transition" class="hover:bg-[#efe8da] transition">
+                <td class="px-6 py-4"> {{ producto.code }} </td>
+                <td class="px-6 py-4 text-[#756c59] font-medium"> {{ producto.name }} </td>
+                <td class="px-6 py-4 text-[#8d917b]"> {{ producto.description }} </td>
+                <td class="px-6 py-4 font-semibold text-[#756c59]"> {{ producto.price | number:'1.2-2' }} € </td>
+    
+                <!-- Editar -->
+                <td class="px-6 py-4 text-center">
+                <button 
+                    class="bg-[#bfc4ab] text-[#756c59] px-3 py-1 rounded-md hover:bg-[#8d917b] hover:text-white transition">
+                    Editar
+                </button>
+                </td>
+    
+                <!-- Eliminar -->
+                <td class="px-6 py-4 text-center">
+                <button 
+                    class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition">
+                    Eliminar
+                </button>
+                </td>
+            </tr>
   
         </tbody>
   

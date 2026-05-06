@@ -1,79 +1,92 @@
 <div class="bg-[#efe8da] min-h-screen pt-24 px-6">
 
-    <!-- Header -->
-    <div class="max-w-7xl mx-auto mb-8">
-  
-      <h1 class="text-2xl font-semibold text-[#756c59]">
-        Panel de administración
-      </h1>
-  
-      <p class="text-sm text-[#8d917b] mt-1">
-        Gestión de productos
-      </p>
-  
-      <!-- Breadcrumb -->
-      <div class="text-sm text-[#8d917b] mt-2">
-        <a routerLink="/" class="hover:underline">Home</a> / 
-        <span class="font-medium">Productos</span>
+  <!-- Header -->
+  <div class="max-w-7xl mx-auto mb-8">
+
+    <div class="flex items-center justify-between">
+    
+      <div>
+        <h1 class="text-2xl font-semibold text-[#756c59]">
+          Panel de administración
+        </h1>
+    
+        <p class="text-sm text-[#8d917b] mt-1">
+          Gestión de productos
+        </p>
       </div>
-  
-    </div>
-  
-    <!-- Botón crear -->
-    <div class="max-w-7xl mx-auto mb-6">
-      <button 
-        class="bg-[#8d917b] text-white px-4 py-2 rounded-lg hover:bg-[#756c59] transition">
-        Crear producto
-      </button>
-    </div>
-  
-    <!-- Tabla -->
-    <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
-  
-      <table class="min-w-full text-sm text-left">
-  
-        <!-- Header -->
-        <thead class="bg-[#d3c7b6] text-[#756c59]">
-            <tr>
-                <th class="px-6 py-3">Código</th>
-                <th class="px-6 py-3">Nombre</th>
-                <th class="px-6 py-3">Descripción</th>
-                <th class="px-6 py-3">Precio</th>
-                <th class="px-6 py-3 text-center">Editar</th>
-                <th class="px-6 py-3 text-center">Eliminar</th>
-            </tr>
-        </thead>
-  
-        <!-- Body -->
-        <tbody class="divide-y divide-gray-100">
-  
-            <tr *ngFor="let producto of products" class="hover:bg-[#efe8da] transition" class="hover:bg-[#efe8da] transition">
-                <td class="px-6 py-4"> {{ producto.code }} </td>
-                <td class="px-6 py-4 text-[#756c59] font-medium"> {{ producto.name }} </td>
-                <td class="px-6 py-4 text-[#8d917b]"> {{ producto.description }} </td>
-                <td class="px-6 py-4 font-semibold text-[#756c59]"> {{ producto.price | number:'1.2-2' }} € </td>
     
-                <!-- Editar -->
-                <td class="px-6 py-4 text-center">
-                <button 
-                    class="bg-[#bfc4ab] text-[#756c59] px-3 py-1 rounded-md hover:bg-[#8d917b] hover:text-white transition">
-                    Editar
-                </button>
-                </td>
+      <!-- Opciones admin -->
+      <div class="flex gap-3">
     
-                <!-- Eliminar -->
-                <td class="px-6 py-4 text-center">
-                <button 
-                    class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition">
-                    Eliminar
-                </button>
-                </td>
-            </tr>
-  
-        </tbody>
-  
-      </table>
-  
+        <button class="bg-[#8d917b] text-white px-4 py-2 rounded-lg hover:bg-[#756c59] transition">
+          Productos
+        </button>
+    
+        <button class="bg-[#bfc4ab] text-[#756c59] px-4 py-2 rounded-lg hover:bg-[#8d917b] hover:text-white transition">
+          Usuarios
+        </button>
+    
+        <button class="bg-[#bfc4ab] text-[#756c59] px-4 py-2 rounded-lg hover:bg-[#8d917b] hover:text-white transition">
+          Órdenes
+        </button>
+    
+      </div>
+    
     </div>
+    
+  </div>
+  
+  <!-- Botón crear -->
+  <div class="max-w-7xl mx-auto mb-6">
+    <button 
+      class="bg-[#8d917b] text-white px-4 py-2 rounded-lg hover:bg-[#756c59] transition">
+      Crear producto
+    </button>
+  </div>
+  
+  <!-- Tabla -->
+  <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+  
+    <table class="min-w-full text-sm text-left">
+
+      <thead class="bg-[#d3c7b6] text-[#756c59]">
+        <tr>
+          <th class="px-6 py-3">Código</th>
+          <th class="px-6 py-3">Nombre</th>
+          <th class="px-6 py-3">Descripción</th>
+          <th class="px-6 py-3">Precio</th>
+          <th class="px-6 py-3 text-center">Editar</th>
+          <th class="px-6 py-3 text-center">Eliminar</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-100">
+  
+        <tr *ngFor="let producto of products" class="hover:bg-[#efe8da] transition" class="hover:bg-[#efe8da] transition">
+          <td class="px-6 py-4"> {{ producto.code }} </td>
+          <td class="px-6 py-4 text-[#756c59] font-medium"> {{ producto.name }} </td>
+          <td class="px-6 py-4 text-[#8d917b]"> {{ producto.description }} </td>
+          <td class="px-6 py-4 font-semibold text-[#756c59]"> {{ producto.price | number:'1.2-2' }} € </td>
+    
+          <!-- Editar -->
+          <td class="px-6 py-4 text-center">
+            <button class="bg-[#bfc4ab] text-[#756c59] px-3 py-1 rounded-md hover:bg-[#8d917b] hover:text-white transition">
+              Editar
+            </button>
+          </td>
+    
+          <!-- Eliminar -->
+          <td class="px-6 py-4 text-center">
+            <button class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+  
+      </tbody>
+  
+    </table>
   
   </div>
+  
+</div>

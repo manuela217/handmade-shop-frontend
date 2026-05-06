@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Product } from '../../shared/models/product';
 import { ProductService } from '../../core/services/product.service';
 
@@ -11,13 +11,22 @@ export class HomeComponent implements OnInit{
 
   products: Product[] = [];
 
-  constructor(private productService:ProductService) {
-
+  constructor(
+    private productService:ProductService,
+    private cdr: ChangeDetectorRef
+    ) {
   }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(
-      data => this.products = data
-    );
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = [...data];
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('ERROR HOME:', err);
+      }
+    });
   }
+
 }

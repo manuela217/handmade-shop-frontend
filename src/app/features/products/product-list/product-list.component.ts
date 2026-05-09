@@ -32,4 +32,17 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  deleteProductById(id:number) {
+    if(confirm('¿Desea eliminar el producto?')) {
+      this.productService.deleteProductById(id).subscribe({
+        next: () => {
+          this.listProducts();
+        },
+        error: (err) => {
+          console.error('ERROR DELETE:', err);
+        }
+      });
+    }
+  }
+
 }

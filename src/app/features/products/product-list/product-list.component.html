@@ -1,41 +1,7 @@
 <div class="bg-[#efe8da] min-h-screen pt-24 px-6">
 
-  <!-- Header -->
-  <div class="max-w-7xl mx-auto mb-8">
+<app-header-admin></app-header-admin>
 
-    <div class="flex items-center justify-between">
-    
-      <div>
-        <h1 class="text-2xl font-semibold text-[#756c59]">
-          Panel de administración
-        </h1>
-    
-        <p class="text-sm text-[#8d917b] mt-1">
-          Gestión de productos
-        </p>
-      </div>
-    
-      <!-- Opciones admin -->
-      <div class="flex gap-3">
-    
-        <button class="bg-[#8d917b] text-white px-4 py-2 rounded-lg hover:bg-[#756c59] transition">
-          Productos
-        </button>
-    
-        <button class="bg-[#bfc4ab] text-[#756c59] px-4 py-2 rounded-lg hover:bg-[#8d917b] hover:text-white transition">
-          Usuarios
-        </button>
-    
-        <button class="bg-[#bfc4ab] text-[#756c59] px-4 py-2 rounded-lg hover:bg-[#8d917b] hover:text-white transition">
-          Órdenes
-        </button>
-    
-      </div>
-    
-    </div>
-    
-  </div>
-  
   <!-- Botón crear -->
   <div class="max-w-7xl mx-auto mb-6">
     <button 
@@ -62,7 +28,7 @@
 
       <tbody class="divide-y divide-gray-100">
   
-        <tr *ngFor="let producto of products" class="hover:bg-[#efe8da] transition" class="hover:bg-[#efe8da] transition">
+        <tr *ngFor="let producto of products" class="hover:bg-[#efe8da] transition">
           <td class="px-6 py-4"> {{ producto.code }} </td>
           <td class="px-6 py-4 text-[#756c59] font-medium"> {{ producto.name }} </td>
           <td class="px-6 py-4 text-[#8d917b]"> {{ producto.description }} </td>
@@ -88,5 +54,4 @@
     </table>
   
   </div>
-  
 </div>

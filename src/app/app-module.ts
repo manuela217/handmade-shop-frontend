@@ -6,7 +6,7 @@ import { HomeComponent } from './features/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Navbar } from './shared/components/navbar/navbar.component';
 import { Footer } from './shared/components/footer/footer.component';
-import { ProductListComponent } from './features/products/product-list/product-list.component';
+import { ProductListComponent } from './features/admin/products/product-list/product-list.component';
 import { CommonModule } from '@angular/common';
 import { HeaderAdmin } from './shared/components/header-admin/header-admin.component';
 

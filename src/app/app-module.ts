@@ -10,10 +10,11 @@ import { ProductListComponent } from './features/admin/products/product-list/pro
 import { CommonModule } from '@angular/common';
 import { HeaderAdmin } from './shared/components/header-admin/header-admin.component';
 import { ProductAddComponent } from './features/admin/products/product-add/product-add.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [App, HomeComponent, Navbar, Footer, ProductListComponent, HeaderAdmin, ProductAddComponent],
-  imports: [BrowserModule, CommonModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, CommonModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

@@ -9,9 +9,10 @@ import { Footer } from './shared/components/footer/footer.component';
 import { ProductListComponent } from './features/admin/products/product-list/product-list.component';
 import { CommonModule } from '@angular/common';
 import { HeaderAdmin } from './shared/components/header-admin/header-admin.component';
+import { ProductAddComponent } from './features/admin/products/product-add/product-add.component';
 
 @NgModule({
-  declarations: [App, HomeComponent, Navbar, Footer, ProductListComponent, HeaderAdmin],
+  declarations: [App, HomeComponent, Navbar, Footer, ProductListComponent, HeaderAdmin, ProductAddComponent],
   imports: [BrowserModule, CommonModule, AppRoutingModule, HttpClientModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

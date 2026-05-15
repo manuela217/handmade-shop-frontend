@@ -7,8 +7,6 @@ import { ProductService } from '../../../../core/services/product.service';
   templateUrl: './product-add.component.html',
 })
 export class ProductAddComponent implements OnInit {
-
-  id:number = 0;
   code:string = '';
   name:string = '';
   description:string = '';
@@ -27,7 +25,6 @@ export class ProductAddComponent implements OnInit {
 
   addProduct() {
     const formData = new FormData();
-    formData.append('id',this.id.toString());
     formData.append('code',this.code);
     formData.append('name',this.name);
     formData.append('description',this.description);
@@ -36,5 +33,8 @@ export class ProductAddComponent implements OnInit {
     formData.append('userId',this.userId);
     formData.append('categoryId',this.categoryId);
 
+    this.productService.createProduct(formData).subscribe(
+      data => console.log(data)
+    );
   }
 }

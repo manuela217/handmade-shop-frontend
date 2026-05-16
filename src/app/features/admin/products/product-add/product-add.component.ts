@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../../core/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -15,7 +16,7 @@ export class ProductAddComponent implements OnInit {
   userId:string = '1'; //temporal
   categoryId:string = '3'; //temporal
 
-  constructor(private productService:ProductService) {
+  constructor(private productService:ProductService, private router:Router) {
 
   }
 
@@ -33,8 +34,22 @@ export class ProductAddComponent implements OnInit {
     formData.append('userId',this.userId);
     formData.append('categoryId',this.categoryId);
 
-    this.productService.createProduct(formData).subscribe(
-      data => console.log(data)
-    );
+    this.productService.createProduct(formData).subscribe({
+
+      next: (data) => {
+  
+        console.log('PRODUCTO CREADO:', data);
+  
+        this.router.navigate(['/admin/products']);
+  
+      },
+  
+      error: (err) => {
+  
+        console.error('ERROR:', err);
+  
+      }
+  
+    });
   }
 }

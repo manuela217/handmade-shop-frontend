@@ -7,7 +7,8 @@ import { ProductAddComponent } from './features/admin/products/product-add/produ
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'admin/products', component: ProductListComponent },
-  { path: 'admin/products/add', component: ProductAddComponent }
+  { path: 'admin/products/add', component: ProductAddComponent },
+  { path: 'admin/products/update/:id', component: ProductAddComponent }
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { Product } from '../../shared/models/product';
   providedIn: 'root',
 })
 export class ProductService {
+
   private apiUrl:string = "http://localhost:8080/api/v1/admin/products";
 
   constructor(private httpClient:HttpClient) {}
@@ -25,5 +26,9 @@ export class ProductService {
 
   getProductById(id:number):Observable<Product> {
     return this.httpClient.get<Product>(this.apiUrl + "/" + id);
+  }
+
+  updateProduct(formData:any): Observable<any> {
+    return this.httpClient.put(this.apiUrl, formData);
   }
 }

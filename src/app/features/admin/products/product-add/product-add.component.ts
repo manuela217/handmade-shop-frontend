@@ -22,11 +22,12 @@ export class ProductAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getProductById();
+
   }
 
   addProduct() {
     const formData = new FormData();
+    formData.append('id', this.id!.toString());
     formData.append('code',this.code);
     formData.append('name',this.name);
     formData.append('description',this.description);
@@ -44,29 +45,5 @@ export class ProductAddComponent implements OnInit {
         console.error('ERROR:', err);
       }
     });
-  }
-
-  getProductById() {
-    this.activatedRoute.params.subscribe(
-      prod => {
-        let id = prod['id'];
-        if (id) {
-          console.log('El valor de la variable id es: ' + id);
-          this.productService.getProductById(id).subscribe(
-            data => {
-              this.id = data.id;
-              this.code = data.code;
-              this.name = data.name;
-              this.description = data.description;
-              this.urlImage = data.urlImage;
-              this.price = data.price;
-              this.userId = data.userId;
-              this.categoryId = data.categoryId;
-              this.cdr.detectChanges();
-            }
-          );
-        }
-      }
-    );
   }
 }

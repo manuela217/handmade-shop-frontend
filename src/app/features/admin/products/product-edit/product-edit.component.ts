@@ -16,6 +16,7 @@ export class ProductEditComponent implements OnInit {
   urlImage:string = '';
   userId:string = '1'; //temporal
   categoryId:string = '3'; //temporal
+  selectFile!: File;
 
   ngOnInit(): void {
     this.getProductById();
@@ -57,6 +58,9 @@ export class ProductEditComponent implements OnInit {
     formData.append('name', this.name);
     formData.append('description', this.description);
     formData.append('price', this.price.toString());
+    if(this.selectFile){
+      formData.append('image', this.selectFile);
+    }
     formData.append('urlImage', this.urlImage);
     formData.append('userId', this.userId.toString());
     formData.append('categoryId', this.categoryId.toString());
@@ -67,5 +71,9 @@ export class ProductEditComponent implements OnInit {
       }
     );
   
+  }
+
+  onFileSelect(event:any) {
+    this.selectFile = event.target.files[0];
   }
 }

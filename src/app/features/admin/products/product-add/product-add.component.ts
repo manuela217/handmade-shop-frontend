@@ -16,6 +16,7 @@ export class ProductAddComponent implements OnInit {
   urlImage:string = '';
   userId:string = '1'; //temporal
   categoryId:string = '3'; //temporal
+  selectFile!:File;
 
   constructor(private productService:ProductService, private router:Router, private activatedRoute:ActivatedRoute, private cdr: ChangeDetectorRef) {
 
@@ -32,6 +33,7 @@ export class ProductAddComponent implements OnInit {
     formData.append('name',this.name);
     formData.append('description',this.description);
     formData.append('price',this.price.toString());
+    formData.append('image', this.selectFile);
     formData.append('urlImage',this.urlImage);
     formData.append('userId',this.userId);
     formData.append('categoryId',this.categoryId);
@@ -45,5 +47,9 @@ export class ProductAddComponent implements OnInit {
         console.error('ERROR:', err);
       }
     });
+  }
+
+  onFileSelect(event:any) {
+    this.selectFile = event.target.files[0];
   }
 }

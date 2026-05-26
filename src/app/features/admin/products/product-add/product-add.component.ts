@@ -28,7 +28,6 @@ export class ProductAddComponent implements OnInit {
 
   addProduct() {
     const formData = new FormData();
-    formData.append('id', this.id!.toString());
     formData.append('code',this.code);
     formData.append('name',this.name);
     formData.append('description',this.description);

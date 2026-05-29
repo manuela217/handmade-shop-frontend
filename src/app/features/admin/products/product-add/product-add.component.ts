@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../../core/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-add',
@@ -18,12 +19,18 @@ export class ProductAddComponent implements OnInit {
   categoryId:string = '3'; //temporal
   selectFile!:File;
 
-  constructor(private productService:ProductService, private router:Router, private activatedRoute:ActivatedRoute, private cdr: ChangeDetectorRef) {
+  constructor(
+    private productService:ProductService, 
+    private router:Router, 
+    private activatedRoute:ActivatedRoute, 
+    private cdr:ChangeDetectorRef,
+    private toastr:ToastrService
+    ) {
 
   }
 
   ngOnInit(): void {
-
+    
   }
 
   addProduct() {
@@ -39,11 +46,12 @@ export class ProductAddComponent implements OnInit {
 
     this.productService.createProduct(formData).subscribe({
       next: (data) => {
-        console.log('PRODUCTO CREADO:', data);
+        this.toastr.success('Producto añadido correctamente', 'Éxito')
         this.router.navigate(['/admin/products']);
       },
       error: (err) => {
         console.error('ERROR:', err);
+        this.toastr.error('No se pudo añadir el producto', 'Error')
       }
     });
   }

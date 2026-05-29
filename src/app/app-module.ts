@@ -12,6 +12,7 @@ import { HeaderAdmin } from './shared/components/header-admin/header-admin.compo
 import { ProductAddComponent } from './features/admin/products/product-add/product-add.component';
 import { FormsModule } from '@angular/forms';
 import { ProductEditComponent } from './features/admin/products/product-edit/product-edit.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,14 @@ import { ProductEditComponent } from './features/admin/products/product-edit/pro
     ProductAddComponent,
     ProductEditComponent,
   ],
-  imports: [BrowserModule, CommonModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule, 
+    CommonModule, 
+    AppRoutingModule, 
+    HttpClientModule, 
+    FormsModule,
+    ToastrModule.forRoot(),
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

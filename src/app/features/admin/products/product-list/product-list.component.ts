@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Product } from '../../../../shared/models/product';
 import { ProductService } from '../../../../core/services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private toastr:ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -36,10 +38,12 @@ export class ProductListComponent implements OnInit {
     if(confirm('¿Desea eliminar el producto?')) {
       this.productService.deleteProductById(id).subscribe({
         next: () => {
+          this.toastr.success('Producto eliminado correctamente','Éxito');
           this.listProducts();
         },
         error: (err) => {
           console.error('ERROR DELETE:', err);
+          this.toastr.error('No se pudo eliminar el producto','Error');
         }
       });
     }

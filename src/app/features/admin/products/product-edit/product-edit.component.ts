@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../../core/services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-edit',
@@ -22,7 +23,13 @@ export class ProductEditComponent implements OnInit {
     this.getProductById();
   }
 
-  constructor(private productService:ProductService, private router:Router, private activatedRoute:ActivatedRoute, private cdr: ChangeDetectorRef) {
+  constructor(
+    private productService:ProductService, 
+    private router:Router, 
+    private activatedRoute:ActivatedRoute, 
+    private cdr: ChangeDetectorRef,
+    private toastr:ToastrService
+    ) {
 
   }
   
@@ -65,11 +72,16 @@ export class ProductEditComponent implements OnInit {
     formData.append('userId', this.userId.toString());
     formData.append('categoryId', this.categoryId.toString());
   
-    this.productService.updateProduct(formData).subscribe(
-      () => {
+    this.productService.updateProduct(formData).subscribe({
+      next: () => {
+        this.toastr.success('Producto editado correctamente','Éxito');
         this.router.navigate(['/admin/products']);
+      },
+      error: (err) => {
+        console.error('ERROR:', err);
+        this.toastr.error('No se pudo actualizar el producto','Error');
       }
-    );
+    });
   
   }
 

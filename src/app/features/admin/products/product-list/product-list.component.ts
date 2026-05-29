@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Product } from '../../../../shared/models/product';
 import { ProductService } from '../../../../core/services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -35,18 +36,29 @@ export class ProductListComponent implements OnInit {
   }
 
   deleteProductById(id:number) {
-    if(confirm('¿Desea eliminar el producto?')) {
-      this.productService.deleteProductById(id).subscribe({
-        next: () => {
-          this.toastr.success('Producto eliminado correctamente','Éxito');
-          this.listProducts();
-        },
-        error: (err) => {
-          console.error('ERROR DELETE:', err);
-          this.toastr.error('No se pudo eliminar el producto','Error');
-        }
+
+    Swal.fire({
+      title: "¿Eliminar producto?",
+      text: "Esta acción no se puede deshacer",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#8d917b",
+      cancelButtonColor: "#bfc4ab",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productService.deleteProductById(id).subscribe({
+          next: () => {
+            this.toastr.success('Producto eliminado correctamente','Éxito');
+            this.listProducts();
+          },
+          error: (err) => {
+            console.error('ERROR DELETE:', err);
+            this.toastr.error('No se pudo eliminar el producto','Error');
+          }
       });
     }
+  });
   }
-
 }

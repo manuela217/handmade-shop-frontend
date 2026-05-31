@@ -21,11 +21,11 @@ export class ProductService {
   }
 
   deleteProductById(id:number):Observable<any> {
-    return this.httpClient.delete(this.apiUrl + "/" + id);
+    return this.httpClient.delete(`${this.apiUrl}/${id}`);
   }
 
   getProductById(id:number):Observable<Product> {
-    return this.httpClient.get<Product>(this.apiUrl + "/" + id);
+    return this.httpClient.get<Product>(`${this.apiUrl}/${id}`);
   }
 
   updateProduct(formData:any): Observable<any> {

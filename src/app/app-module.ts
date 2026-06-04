@@ -13,6 +13,7 @@ import { ProductAddComponent } from './features/admin/products/product-add/produ
 import { FormsModule } from '@angular/forms';
 import { ProductEditComponent } from './features/admin/products/product-edit/product-edit.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CategoryListComponent } from './features/admin/categories/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,13 @@ import { ToastrModule } from 'ngx-toastr';
     HeaderAdmin,
     ProductAddComponent,
     ProductEditComponent,
+    CategoryListComponent,
   ],
   imports: [
-    BrowserModule, 
-    CommonModule, 
-    AppRoutingModule, 
-    HttpClientModule, 
+    BrowserModule,
+    CommonModule,
+    AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ToastrModule.forRoot(),
   ],

@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductEditComponent } from './features/admin/products/product-edit/product-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CategoryListComponent } from './features/admin/categories/category-list/category-list.component';
+import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component/category-add.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CategoryListComponent } from './features/admin/categories/category-list
     ProductAddComponent,
     ProductEditComponent,
     CategoryListComponent,
+    CategoryAddComponent,
   ],
   imports: [
     BrowserModule,

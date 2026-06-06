@@ -5,6 +5,7 @@ import { ProductListComponent } from './features/admin/products/product-list/pro
 import { ProductAddComponent } from './features/admin/products/product-add/product-add.component';
 import { ProductEditComponent } from './features/admin/products/product-edit/product-edit.component';
 import { CategoryListComponent } from './features/admin/categories/category-list/category-list.component';
+import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component/category-add.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'admin/products/add', component: ProductAddComponent },
   { path: 'admin/products/edit/:id', component: ProductEditComponent },
   { path: 'admin/categories', component: CategoryListComponent },
+  { path: 'admin/categories/add', component: CategoryAddComponent },
 ];
 
 @NgModule({

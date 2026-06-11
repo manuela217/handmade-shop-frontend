@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../../core/services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from '../../../../shared/models/category';
+import { CategoryService } from '../../../../core/services/category.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -16,10 +18,13 @@ export class ProductEditComponent implements OnInit {
   price:number = 0;
   urlImage:string = '';
   userId:string = '1'; //temporal
-  categoryId:string = '3'; //temporal
+  categoryId:string = '';
   selectFile!: File;
 
+  categories: Category[] = [];
+
   ngOnInit(): void {
+    this.getCategories();
     this.getProductById();
   }
 
@@ -28,7 +33,8 @@ export class ProductEditComponent implements OnInit {
     private router:Router, 
     private activatedRoute:ActivatedRoute, 
     private cdr: ChangeDetectorRef,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+    private categoryService: CategoryService,
     ) {
 
   }
@@ -87,5 +93,17 @@ export class ProductEditComponent implements OnInit {
 
   onFileSelect(event:any) {
     this.selectFile = event.target.files[0];
+  }
+
+  getCategories() {
+    this.categoryService.getCategoryList().subscribe({
+      next: (data) => {
+        this.categories = data;
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 }

@@ -122,6 +122,33 @@
           >
   
         </div>
+
+        <!-- Categoría -->
+        <div>
+          <label
+            class="block text-sm font-medium text-[#756c59] mb-2"
+            for="category">
+            Categoría
+          </label>
+
+          <select
+            [(ngModel)]="categoryId"
+            id="category"
+            name="category"
+            class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+            required>
+
+            <option value="">
+              Selecciona una categoría
+            </option>
+
+            <option
+              *ngFor="let category of categories"
+              [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+        </div>
   
         <!-- Imagen -->
         <div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../../../core/services/category.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Category } from '../../../../../shared/models/category';
 
 @Component({
@@ -18,7 +18,6 @@ export class CategoryAddComponent implements OnInit {
     private categoryService:CategoryService,
     private toastr:ToastrService,
     private router:Router,
-    private activateRoute:ActivatedRoute,
   ) {}
 
   ngOnInit(): void {

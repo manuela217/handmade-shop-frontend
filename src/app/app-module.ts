@@ -15,6 +15,7 @@ import { ProductEditComponent } from './features/admin/products/product-edit/pro
 import { ToastrModule } from 'ngx-toastr';
 import { CategoryListComponent } from './features/admin/categories/category-list/category-list.component';
 import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component/category-add.component';
+import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CategoryAddComponent } from './features/admin/categories/category-add/c
     ProductEditComponent,
     CategoryListComponent,
     CategoryAddComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,

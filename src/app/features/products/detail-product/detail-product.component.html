@@ -1,0 +1,128 @@
+<div class="bg-[#efe8da] min-h-screen pt-24 px-6">
+
+    <!-- Navbar -->
+    <app-navbar></app-navbar>
+  
+    <!-- Breadcrumb -->
+    <div class="max-w-7xl mx-auto mb-6">
+  
+      <nav class="flex items-center gap-2 text-sm text-[#8d917b]">
+  
+        <a
+          routerLink="/"
+          class="hover:text-[#756c59] transition">
+          Inicio
+        </a>
+  
+        <span>/</span>
+  
+        <span class="text-[#756c59] font-medium">
+          Producto
+        </span>
+  
+      </nav>
+  
+    </div>
+  
+    <!-- Card producto -->
+    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
+  
+      <div class="grid md:grid-cols-2 gap-8 p-8">
+  
+        <!-- Imagen -->
+        <div>
+  
+          <img
+            src="{{urlImage}}"
+            alt="Producto"
+            class="w-full rounded-xl object-cover shadow-sm">
+  
+        </div>
+  
+        <!-- Información -->
+        <div>
+  
+          <form>
+  
+            <h1 class="text-3xl font-semibold text-[#756c59] mb-6">
+              {{name}}
+            </h1>
+  
+            <div class="space-y-4">
+  
+              <!-- Precio -->
+              <div class="bg-[#faf8f4] border border-[#d3c7b6] rounded-xl p-4">
+  
+                <p class="text-sm text-[#8d917b] mb-1">
+                  Precio
+                </p>
+  
+                <p class="text-2xl font-bold text-[#756c59]">
+                  {{price}} €
+                </p>
+  
+              </div>
+  
+              <!-- Descripción -->
+              <div class="bg-[#faf8f4] border border-[#d3c7b6] rounded-xl p-4">
+  
+                <p class="text-sm text-[#8d917b] mb-2">
+                  Descripción
+                </p>
+  
+                <p class="text-[#756c59]">
+                  {{description}}
+                </p>
+  
+              </div>
+  
+              <!-- Cantidad -->
+              <div>
+  
+                <label
+                  for="quantity"
+                  class="block text-sm font-medium text-[#756c59] mb-2">
+  
+                  Cantidad
+  
+                </label>
+  
+                <input
+                  type="number"
+                  [(ngModel)]="quantity"
+                  id="quantity"
+                  name="quantity"
+                  min="1"
+                  max="5"
+                  value="1"
+                  class="w-32 rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
+  
+              </div>
+  
+            </div>
+  
+            <!-- Botón -->
+            <div class="mt-8">
+  
+              <button
+                (click)="addCart(id)"
+                class="bg-[#8d917b] text-white px-6 py-3 rounded-xl hover:bg-[#756c59] transition shadow-sm">
+  
+                Añadir al carrito
+  
+              </button>
+  
+            </div>
+  
+          </form>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+  
+  </div>

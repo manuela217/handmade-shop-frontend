@@ -18,7 +18,6 @@ import { CategoryAddComponent } from './features/admin/categories/category-add/c
 import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
 
-
 @NgModule({
   declarations: [
     App,

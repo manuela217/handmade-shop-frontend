@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../core/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../../../core/services/shopping-cart.service';
+import { ShoppingCart } from '../../../shared/models/shopping-cart';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail-product',
@@ -26,6 +28,7 @@ export class DetailProductComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private shoppingCartService:ShoppingCartService,
     private cdr: ChangeDetectorRef,
+    private toastr:ToastrService,
   ){}
 
   getProductById() {
@@ -54,5 +57,14 @@ export class DetailProductComponent implements OnInit {
     console.log('nombre producto: ',this.name);
     console.log('precio producto: ',this.price);
     console.log('cantidad producto: ',this.quantity);
+
+    let item = new ShoppingCart(id, this.name, this.quantity, this.price);
+
+    this.shoppingCartService.addItemCart(item);
+
+    console.log("Total carrito: ");
+    console.log(this.shoppingCartService.totalCart());
+
+    this.toastr.success('Producto añadido al carrito', 'Carrito de compra');
   }
 }

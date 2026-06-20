@@ -8,6 +8,8 @@ import { CategoryListComponent } from './features/admin/categories/category-list
 import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component/category-add.component';
 import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
+import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
+
 
 
 const routes: Routes = [
@@ -19,6 +21,7 @@ const routes: Routes = [
   { path: 'admin/categories/add', component: CategoryAddComponent },
   { path: 'admin/categories/edit/:id', component: CategoryEditComponent },
   { path: 'products/detail/:id', component: DetailProductComponent },
+  { path: 'cart/summary', component: SummaryOrderComponent },
 ];
 
 @NgModule({

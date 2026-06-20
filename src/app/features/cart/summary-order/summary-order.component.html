@@ -1,0 +1,157 @@
+<div class="bg-[#efe8da] min-h-screen pt-24 px-6">
+
+    <!-- Navbar -->
+    <app-navbar></app-navbar>
+  
+    <!-- Breadcrumb -->
+    <div class="max-w-7xl mx-auto mb-6">
+  
+      <nav class="flex items-center gap-2 text-sm text-[#8d917b]">
+  
+        <a
+          routerLink="/"
+          class="hover:text-[#756c59] transition">
+          Inicio
+        </a>
+  
+        <span>/</span>
+  
+        <span class="text-[#756c59] font-medium">
+          Resumen de compra
+        </span>
+  
+      </nav>
+  
+    </div>
+  
+    <!-- Contenido -->
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+  
+      <!-- Información principal -->
+      <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm p-8">
+  
+        <!-- Datos cliente -->
+        <div class="mb-10">
+  
+          <h2 class="text-xl font-semibold text-[#756c59] mb-4">
+            Datos del pedido
+          </h2>
+  
+          <div class="space-y-2 text-[#756c59]">
+  
+            <p><strong> Nombre: </strong> </p>
+  
+            <p><strong> Correo: </strong> </p>
+  
+            <p><strong> Dirección: </strong> </p>
+  
+          </div>
+  
+        </div>
+  
+        <!-- Productos -->
+        <div>
+  
+          <h2 class="text-xl font-semibold text-[#756c59] mb-4">
+            Productos
+          </h2>
+  
+          <div class="overflow-x-auto">
+  
+            <table class="min-w-full text-sm text-left">
+  
+              <thead class="bg-[#d3c7b6] text-[#756c59]">
+  
+                <tr>
+                  <th class="px-6 py-3"> Producto </th>
+                  <th class="px-6 py-3"> Precio </th>
+                  <th class="px-6 py-3"> Cantidad </th>
+                  <th class="px-6 py-3"> Total </th>
+                  <th class="px-6 py-3 text-center"> Eliminar </th>
+                </tr>
+  
+              </thead>
+  
+              <tbody class="divide-y divide-gray-100">
+  
+                <tr class="hover:bg-[#efe8da] transition">
+  
+                  <td class="px-6 py-4">
+                    Producto ejemplo
+                  </td>
+  
+                  <td class="px-6 py-4">
+                    12,00 €
+                  </td>
+  
+                  <td class="px-6 py-4">
+                    2
+                  </td>
+  
+                  <td class="px-6 py-4 font-semibold text-[#756c59]">
+                    24,00 €
+                  </td>
+  
+                  <td class="px-6 py-4 text-center">
+  
+                    <button
+                      class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition">
+  
+                      Quitar
+  
+                    </button>
+  
+                  </td>
+  
+                </tr>
+  
+              </tbody>
+  
+            </table>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <!-- Resumen -->
+      <div>
+  
+        <div class="bg-white rounded-2xl shadow-sm p-6 sticky top-28">
+  
+          <h2 class="text-xl font-semibold text-[#756c59] mb-6">
+            Resumen
+          </h2>
+  
+          <div class="border-t border-b border-[#d3c7b6] py-4 mb-6">
+  
+            <div class="flex justify-between text-[#756c59]">
+  
+              <span> Total </span>
+  
+              <span class="font-semibold">
+                0,00 €
+              </span>
+  
+            </div>
+  
+          </div>
+  
+          <button
+            class="w-full bg-[#8d917b] text-white py-3 rounded-xl hover:bg-[#756c59] transition">
+  
+            Pagar con PayPal
+  
+          </button>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+    <!-- Footer -->
+    <app-footer></app-footer>
+  
+  </div>

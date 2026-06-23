@@ -74,31 +74,34 @@
   
               <tbody class="divide-y divide-gray-100">
   
-                <tr class="hover:bg-[#efe8da] transition">
+                <tr 
+                  class="hover:bg-[#efe8da] transition"
+                  *ngFor="let item of items"
+                >
   
                   <td class="px-6 py-4">
-                    Producto ejemplo
+                    {{item.productName}}
                   </td>
   
                   <td class="px-6 py-4">
-                    12,00 €
+                    {{item.price}} €
                   </td>
   
                   <td class="px-6 py-4">
-                    2
+                    {{item.quantity}}
                   </td>
   
                   <td class="px-6 py-4 font-semibold text-[#756c59]">
-                    24,00 €
+                    {{item.getTotalPriceItem()}} €
                   </td>
   
                   <td class="px-6 py-4 text-center">
   
                     <button
-                      class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition">
-  
+                      class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition"
+                      (click)="deleteItemCart(item.productId)"
+                    >
                       Quitar
-  
                     </button>
   
                   </td>

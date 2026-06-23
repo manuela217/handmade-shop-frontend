@@ -39,11 +39,11 @@
   
           <div class="space-y-2 text-[#756c59]">
   
-            <p><strong> Nombre: </strong> </p>
+            <p><strong> Nombre: </strong> {{firstName}} {{lastName}} </p>
   
-            <p><strong> Correo: </strong> </p>
+            <p><strong> Correo: </strong> {{email}} </p>
   
-            <p><strong> Dirección: </strong> </p>
+            <p><strong> Dirección: </strong> {{address}} </p>
   
           </div>
   
@@ -134,7 +134,7 @@
               <span> Total </span>
   
               <span class="font-semibold">
-                0,00 €
+                {{totalCart}} €
               </span>
   
             </div>
@@ -143,9 +143,7 @@
   
           <button
             class="w-full bg-[#8d917b] text-white py-3 rounded-xl hover:bg-[#756c59] transition">
-  
             Pagar con PayPal
-  
           </button>
   
         </div>

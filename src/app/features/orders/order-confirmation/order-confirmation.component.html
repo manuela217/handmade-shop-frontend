@@ -1,0 +1,36 @@
+<div class="min-h-screen flex flex-col">
+
+    <app-navbar></app-navbar>
+  
+    <main
+      class="flex-1 bg-[#efe8da] flex items-center justify-center px-6">
+  
+      <div
+        class="bg-white rounded-2xl shadow-sm p-10 text-center max-w-lg">
+  
+        <h1 class="text-3xl font-semibold text-[#756c59] mb-4">
+           ¡Compra realizada correctamente!
+        </h1>
+  
+        <p class="text-[#8d917b] mb-6">
+            Tu pedido nº {{ orderId }} ha sido confirmado.
+        </p>
+
+        <p class="text-[#8d917b] mb-6">
+            Gracias por confiar en Handmade Shop
+        </p>
+  
+        <button
+          routerLink="/"
+          class="bg-[#8d917b] text-white px-6 py-3 rounded-xl hover:bg-[#756c59] transition"
+        >
+          Volver al inicio
+        </button>
+  
+      </div>
+  
+    </main>
+  
+    <app-footer></app-footer>
+  
+  </div>

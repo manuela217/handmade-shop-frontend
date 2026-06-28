@@ -18,7 +18,7 @@ import { CategoryAddComponent } from './features/admin/categories/category-add/c
 import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
-
+import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
 
 
 @NgModule({
@@ -36,6 +36,7 @@ import { SummaryOrderComponent } from './features/cart/summary-order/summary-ord
     CategoryEditComponent,
     DetailProductComponent,
     SummaryOrderComponent,
+    OrderConfirmationComponent,
   ],
   imports: [
     BrowserModule,

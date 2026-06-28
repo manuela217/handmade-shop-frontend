@@ -44,4 +44,9 @@ export class ShoppingCartService {
     );
     return this.itemList;
   }
+
+  clearCart() {
+    this.items.clear();
+    this.itemList = [];
+  }
 }

@@ -9,6 +9,7 @@ import { CategoryAddComponent } from './features/admin/categories/category-add/c
 import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
+import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'admin/categories/edit/:id', component: CategoryEditComponent },
   { path: 'products/detail/:id', component: DetailProductComponent },
   { path: 'cart/summary', component: SummaryOrderComponent },
+  { path: 'orders/confirmation/:id', component: OrderConfirmationComponent },
 ];
 
 @NgModule({

@@ -6,6 +6,8 @@ import { OrderProduct } from '../../../shared/models/order-product';
 import { Order } from '../../../shared/models/order';
 import { OrderState } from '../../../shared/models/order-state';
 import { OrderService } from '../../../core/services/order.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-summary-order',
@@ -28,6 +30,8 @@ export class SummaryOrderComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private userService:UserService,
     private orderService:OrderService,
+    private router:Router, 
+    private toastr:ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +41,6 @@ export class SummaryOrderComponent implements OnInit {
   }
 
   generateOrder() {
-
     this.orderProducts = [];
 
     this.items.forEach(
@@ -49,11 +52,14 @@ export class SummaryOrderComponent implements OnInit {
 
     let order = new Order(null,new Date(),this.orderProducts,this.userId,OrderState.CANCELLED);
     console.log('Pedido: ' + order.orderState);
-    this.orderService.createOrder(order).subscribe(
-      data => {
-        console.log('Pedido creado con id: ' + data.id);
+    this.orderService.createOrder(order).subscribe({
+      next: (data) => {
+        this.router.navigate(['/orders/confirmation',data.id]);
+      },
+      error: (err) => {
+        this.toastr.error('No se pudo crear el pedido','Error');
       }
-    );
+    });
   }
 
   deleteItemCart(productId:number) {

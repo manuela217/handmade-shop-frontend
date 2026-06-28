@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class OrderService {
   private apiUrl:string = "http://localhost:8080/api/v1/orders";
-  private update:string = 'update/state/order';
 
   constructor(
     private httpClient:HttpClient,
@@ -18,8 +17,8 @@ export class OrderService {
     return this.httpClient.post<Order>(this.apiUrl,order);
   }
 
-  updateOrderState(formData:any):Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}/${this.update}`,formData);
+  updateOrderState(orderId:number,state:string):Observable<void> {
+    return this.httpClient.put<void>(`${this.apiUrl}/${orderId}/state?state=${state}`,{});
   }
 
   getOrderByUser(userId:number):Observable<Order[]> {

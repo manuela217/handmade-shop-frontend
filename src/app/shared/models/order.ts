@@ -1,5 +1,5 @@
 import { OrderProduct } from "./order-product";
-import { OrderState } from "./order-state";
+import { OrderState } from "../enums/order-state";
 
 export class Order {
     constructor(

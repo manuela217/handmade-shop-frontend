@@ -4,7 +4,7 @@ import { ShoppingCartService } from '../../../core/services/shopping-cart.servic
 import { UserService } from '../../../core/services/user.service';
 import { OrderProduct } from '../../../shared/models/order-product';
 import { Order } from '../../../shared/models/order';
-import { OrderState } from '../../../shared/models/order-state';
+import { OrderState } from '../../../shared/enums/order-state';
 import { OrderService } from '../../../core/services/order.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

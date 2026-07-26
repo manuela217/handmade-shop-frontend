@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../../../core/services/order.service';
 import { ShoppingCartService } from '../../../core/services/shopping-cart.service';
 import { Toast, ToastrService } from 'ngx-toastr';
-import { OrderState } from '../../../shared/models/order-state';
+import { OrderState } from '../../../shared/enums/order-state';
 
 @Component({
   selector: 'app-order-confirmation',

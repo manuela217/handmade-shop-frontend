@@ -4,168 +4,154 @@
   
     <main class="flex-1 bg-[#efe8da] pt-24 px-6 pb-16">
   
-      <div class="max-w-2xl mx-auto">
+        <div class="max-w-2xl mx-auto">
   
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-  
-          <div class="p-8">
-  
-            <h1 class="text-3xl font-semibold text-[#756c59] mb-2">
-              Crear cuenta
-            </h1>
-  
-            <p class="text-[#8d917b] mb-8">
-              Completa tus datos para registrarte en Handmade Shop.
-            </p>
-  
-            <form class="space-y-6">
-  
-              <!-- Nombre -->
-              <div>
-  
-                <label
-                  for="name"
-                  class="block text-sm font-medium text-[#756c59] mb-2">
-  
-                  Nombre
-  
-                </label>
-  
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  autocomplete="off"
-                  placeholder="Introduce tu nombre"
-                  class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
-  
-              </div>
-  
-              <!-- Apellidos -->
-              <div>
-  
-                <label
-                  for="surname"
-                  class="block text-sm font-medium text-[#756c59] mb-2">
-  
-                  Apellidos
-  
-                </label>
-  
-                <input
-                  id="surname"
-                  type="text"
-                  name="surname"
-                  autocomplete="off"
-                  placeholder="Introduce tus apellidos"
-                  class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
-  
-              </div>
-  
-              <!-- Email -->
-              <div>
-  
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-[#756c59] mb-2">
-  
-                  Correo electrónico
-  
-                </label>
-  
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  autocomplete="off"
-                  placeholder="ejemplo@email.com"
-                  class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
-  
-              </div>
-  
-              <!-- Dirección -->
-              <div>
-  
-                <label
-                  for="address"
-                  class="block text-sm font-medium text-[#756c59] mb-2">
-  
-                  Dirección
-  
-                </label>
-  
-                <input
-                  id="address"
-                  type="text"
-                  name="address"
-                  autocomplete="off"
-                  placeholder="Introduce tu dirección"
-                  class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
-  
-              </div>
-  
-              <!-- Teléfono -->
-              <div>
-  
-                <label
-                  for="cellphone"
-                  class="block text-sm font-medium text-[#756c59] mb-2">
-  
-                  Teléfono
-  
-                </label>
-  
-                <input
-                  id="cellphone"
-                  type="tel"
-                  name="cellphone"
-                  autocomplete="off"
-                  placeholder="Introduce tu teléfono"
-                  class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
-  
-              </div>
-  
-              <!-- Contraseña -->
-              <div>
-  
-                <label
-                  for="password"
-                  class="block text-sm font-medium text-[#756c59] mb-2">
-  
-                  Contraseña
-  
-                </label>
-  
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  autocomplete="new-password"
-                  placeholder="Introduce tu contraseña"
-                  class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]">
-  
-              </div>
-  
-              <!-- Botón -->
-              <div class="pt-2">
-  
-                <button
-                  type="submit"
-                  class="w-full bg-[#8d917b] text-white py-3 rounded-xl font-medium shadow-sm hover:bg-[#756c59] transition">
-  
-                  Crear cuenta
-  
-                </button>
-  
-              </div>
-  
-            </form>
-  
-          </div>
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+    
+                <div class="p-8">
+        
+                    <h1 class="text-3xl font-semibold text-[#756c59] mb-2">
+                        Crear cuenta
+                    </h1>
+        
+                    <p class="text-[#8d917b] mb-8">
+                        Completa tus datos para registrarte en Handmade Shop
+                    </p>
+        
+                    <form 
+                        class="space-y-6"
+                        (ngSubmit)="register()"
+                    >
+                        <!-- Nombre -->
+                        <div>
+                            <label
+                                for="name"
+                                class="block text-sm font-medium text-[#756c59] mb-2"
+                            >
+                            Nombre
+                            </label>
+                            <input
+                                [(ngModel)]="name"
+                                id="name"
+                                type="text"
+                                name="name"
+                                autocomplete="off"
+                                placeholder="Introduce tu nombre"
+                                class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+                            >
+                        </div>
+            
+                        <!-- Apellidos -->
+                        <div>
+                            <label
+                                for="surname"
+                                class="block text-sm font-medium text-[#756c59] mb-2"
+                            >
+                            Apellidos
+                            </label>
+                            <input
+                                [(ngModel)]="surname"
+                                id="surname"
+                                type="text"
+                                name="surname"
+                                autocomplete="off"
+                                placeholder="Introduce tus apellidos"
+                                class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+                            >
+                        </div>
+            
+                        <!-- Email -->
+                        <div>
+                            <label
+                                for="email"
+                                class="block text-sm font-medium text-[#756c59] mb-2"
+                            >
+                            Correo electrónico
+                            </label>
+                            <input
+                                [(ngModel)]="email"
+                                id="email"
+                                type="email"
+                                name="email"
+                                autocomplete="off"
+                                placeholder="ejemplo@email.com"
+                                class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+                            >
+                        </div>
+            
+                        <!-- Dirección -->
+                        <div>
+                            <label
+                                for="address"
+                                class="block text-sm font-medium text-[#756c59] mb-2"
+                            >
+                            Dirección
+                            </label>
+                            <input
+                                [(ngModel)]="address"
+                                id="address"
+                                type="text"
+                                name="address"
+                                autocomplete="off"
+                                placeholder="Introduce tu dirección"
+                                class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+                            >
+                        </div>
+            
+                        <!-- Teléfono -->
+                        <div>
+                            <label
+                                for="cellphone"
+                                class="block text-sm font-medium text-[#756c59] mb-2"
+                            >
+                            Teléfono
+                            </label>
+                            <input
+                                [(ngModel)]="cellphone"
+                                id="cellphone"
+                                type="tel"
+                                name="cellphone"
+                                autocomplete="off"
+                                placeholder="Introduce tu teléfono"
+                                class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+                            >
+                        </div>
+            
+                        <!-- Contraseña -->
+                        <div>
+                            <label
+                                for="password"
+                                class="block text-sm font-medium text-[#756c59] mb-2"
+                            >
+                            Contraseña
+                            </label>
+                            <input
+                                [(ngModel)]="password"
+                                id="password"
+                                type="password"
+                                name="password"
+                                autocomplete="new-password"
+                                placeholder="Introduce tu contraseña"
+                                class="w-full rounded-xl border border-[#d3c7b6] bg-[#faf8f4] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+                            >
+                        </div>
+            
+                        <!-- Botón -->
+                        <div class="pt-2">
+                            <button
+                                type="submit"
+                                class="w-full bg-[#8d917b] text-white py-3 rounded-xl font-medium shadow-sm hover:bg-[#756c59] transition"
+                            >
+                            Crear cuenta
+                            </button>
+                        </div>
+                    </form>
+        
+                </div>
+    
+            </div>
   
         </div>
-  
-      </div>
   
     </main>
   

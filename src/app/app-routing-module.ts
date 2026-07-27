@@ -10,6 +10,7 @@ import { CategoryEditComponent } from './features/admin/categories/category-edit
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
 import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
+import { RegisterComponent } from './features/auth/pages/register/register.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'products/detail/:id', component: DetailProductComponent },
   { path: 'cart/summary', component: SummaryOrderComponent },
   { path: 'orders/confirmation/:id', component: OrderConfirmationComponent },
+  { path: 'user/register', component: RegisterComponent },
 ];
 
 @NgModule({

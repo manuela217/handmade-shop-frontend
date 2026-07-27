@@ -11,6 +11,7 @@ import { DetailProductComponent } from './features/products/detail-product/detai
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
 import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './features/auth/pages/register/register.component';
+import { LoginComponent } from './features/auth/pages/login/login.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'cart/summary', component: SummaryOrderComponent },
   { path: 'orders/confirmation/:id', component: OrderConfirmationComponent },
   { path: 'user/register', component: RegisterComponent },
+  { path: 'user/login', component: LoginComponent },
 ];
 
 @NgModule({

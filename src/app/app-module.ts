@@ -20,6 +20,7 @@ import { DetailProductComponent } from './features/products/detail-product/detai
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
 import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './features/auth/pages/register/register.component';
+import { LoginComponent } from './features/auth/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RegisterComponent } from './features/auth/pages/register/register.compo
     SummaryOrderComponent,
     OrderConfirmationComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

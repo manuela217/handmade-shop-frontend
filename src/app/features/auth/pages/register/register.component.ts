@@ -34,11 +34,12 @@ export class RegisterComponent implements OnInit {
   register() {
     this.username = this.email;
     this.userType = UserType.USER;
-    let user = new User (0, this.username,this.name,this.surname,this.email,this.address,this.cellphone,this.password,this.userType);
+    const user = new User (0, this.username,this.name,this.surname,this.email,this.address,this.cellphone,this.password,this.userType);
     this.authentication.register(user).subscribe({
       next: (res) => {
         this.toastr.success('Usuario registrado', 'Éxito');
         console.log(res);
+        this.router.navigate(['user/login']);
       },
       error: () => {
         this.toastr.error('No se pudo registrar el usuario', 'Error');

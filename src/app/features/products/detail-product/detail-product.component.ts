@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../core/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../../../core/services/shopping-cart.service';
 import { ShoppingCart } from '../../../shared/models/shopping-cart';
 import { ToastrService } from 'ngx-toastr';
+import { HomeService } from '../../../core/services/home.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -24,7 +24,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   constructor (
-    private productService:ProductService,
+    private homeService:HomeService,
     private activatedRoute:ActivatedRoute,
     private shoppingCartService:ShoppingCartService,
     private cdr: ChangeDetectorRef,
@@ -36,7 +36,7 @@ export class DetailProductComponent implements OnInit {
       prod => {
         let id = prod['id'];
         if(id) {
-          this.productService.getProductById(id).subscribe(
+          this.homeService.getProductById(id).subscribe(
             data => {
               this.id = data.id;
               this.name = data.name;

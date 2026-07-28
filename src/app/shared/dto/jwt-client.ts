@@ -1,3 +1,3 @@
 export class JwtClient {
-    constructor (public token: string) {}
+    constructor (public id:number,public token: string) {}
 }

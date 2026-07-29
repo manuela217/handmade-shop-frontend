@@ -8,6 +8,7 @@ import { OrderState } from '../../../shared/enums/order-state';
 import { OrderService } from '../../../core/services/order.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SessionStorageService } from '../../../core/services/session-storage.service';
 
 @Component({
   selector: 'app-summary-order',
@@ -32,11 +33,13 @@ export class SummaryOrderComponent implements OnInit {
     private orderService:OrderService,
     private router:Router, 
     private toastr:ToastrService,
+    private sessionStorage:SessionStorageService,
   ) {}
 
   ngOnInit(): void {
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
+    this.userId = this.sessionStorage.getItem('token').id;
     this.getUserById(this.userId); 
   }
 

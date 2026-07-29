@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Category } from '../../../../shared/models/category';
 import { CategoryService } from '../../../../core/services/category.service';
+import { SessionStorageService } from '../../../../core/services/session-storage.service';
 
 @Component({
   selector: 'app-product-add',
@@ -17,8 +18,9 @@ export class ProductAddComponent implements OnInit {
   description:string = '';
   price:number = 0;
   urlImage:string = '';
-  userId:string = '1'; //temporal
+  userId:string = '0';
   categoryId:string = '';
+  user:number = 0;
   selectFile!:File;
 
   categories:Category [] = [];
@@ -30,12 +32,15 @@ export class ProductAddComponent implements OnInit {
     private cdr:ChangeDetectorRef,
     private toastr:ToastrService,
     private categoryService:CategoryService,
+    private sessionStorage:SessionStorageService,
     ) {
 
   }
 
   ngOnInit(): void {
     this.getCategories();
+    this.user = this.sessionStorage.getItem('token').id;
+    this.userId = this.user.toString();
   }
 
   addProduct() {

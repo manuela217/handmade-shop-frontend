@@ -17,7 +17,7 @@ export class HeaderService {
     this.token = jwtClient ? jwtClient.token : '';
     this.headers = new HttpHeaders(
       {
-        'Content-Type':'application/json',
+        //'Content-Type':'application/json',
         'Authorization':`${this.token}`
       }
     );

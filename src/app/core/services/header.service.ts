@@ -13,13 +13,18 @@ export class HeaderService {
   constructor(
     private sessionStorage:SessionStorageService,
   ) {
+
     const jwtClient = this.sessionStorage.getItem('token');
-    this.token = jwtClient ? jwtClient.token : '';
-    this.headers = new HttpHeaders(
-      {
-        //'Content-Type':'application/json',
-        'Authorization':`${this.token}`
-      }
-    );
+
+    if (jwtClient) {
+      this.token = jwtClient.token;
+      this.headers = new HttpHeaders(
+        {
+          //'Content-Type':'application/json',
+          'Authorization':`${this.token}`
+        }
+      );
+    }
+
   }
 }

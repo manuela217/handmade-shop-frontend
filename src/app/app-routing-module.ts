@@ -13,6 +13,7 @@ import { OrderConfirmationComponent } from './features/orders/order-confirmation
 import { RegisterComponent } from './features/auth/pages/register/register.component';
 import { LoginComponent } from './features/auth/pages/login/login.component';
 import { LogoutComponent } from './features/auth/pages/logout/logout.component';
+import { authGuard } from './core/guards/auth-guard';
 
 
 
@@ -25,7 +26,7 @@ const routes: Routes = [
   { path: 'admin/categories/add', component: CategoryAddComponent },
   { path: 'admin/categories/edit/:id', component: CategoryEditComponent },
   { path: 'products/detail/:id', component: DetailProductComponent },
-  { path: 'cart/summary', component: SummaryOrderComponent },
+  { path: 'cart/summary', component: SummaryOrderComponent, canActivate:[authGuard] },
   { path: 'orders/confirmation/:id', component: OrderConfirmationComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/login', component: LoginComponent },

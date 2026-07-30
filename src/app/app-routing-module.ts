@@ -12,6 +12,7 @@ import { SummaryOrderComponent } from './features/cart/summary-order/summary-ord
 import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './features/auth/pages/register/register.component';
 import { LoginComponent } from './features/auth/pages/login/login.component';
+import { LogoutComponent } from './features/auth/pages/logout/logout.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'orders/confirmation/:id', component: OrderConfirmationComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({

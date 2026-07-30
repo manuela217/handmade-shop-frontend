@@ -25,8 +25,15 @@
   
       <!-- Links -->
       <div class="flex gap-6">
-        <a class="hover:opacity-80 transition cursor-pointer" [routerLink]="['/cart/summary']"> Carrito </a>
-        <a class="hover:opacity-80 transition cursor-pointer" [routerLink]="['/user/login']"> Login </a>
+        @if (!isLoggedIn()) {
+          <a routerLink="/user/login"> Login </a>
+        }
+        
+        @if (isLoggedIn()) {
+          <a routerLink="/cart/summary"> Carrito </a>
+        
+          <a routerLink="/logout"> Cerrar sesión </a>
+        }
       </div>
   
     </div>

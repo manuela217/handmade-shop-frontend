@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../../core/services/authentication.service';
 import { UserDto } from '../../../../shared/dto/user-dto';
 import { SessionStorageService } from '../../../../core/services/session-storage.service';
+import { Router } from '@angular/router';
+import { UserType } from '../../../../shared/enums/user-type';
 
 @Component({
   selector: 'app-login',
@@ -20,15 +22,20 @@ export class LoginComponent implements OnInit {
   constructor(
     private authentication:AuthenticationService,
     private sessionStorage:SessionStorageService,
+    private router:Router,
   ) {}
 
   login() {
-    let userDto = new UserDto(this.email,this.password);
+    const userDto = new UserDto(this.email,this.password);
+
     this.authentication.login(userDto).subscribe(
-      token => {
-        console.log(token);
-        this.sessionStorage.setItem('token',token);
+      jwtClient  => {
+        this.sessionStorage.setItem('token',jwtClient);
+        if (jwtClient.userType === UserType.ADMIN) {
+          this.router.navigate(['/admin/products']);
+        } else {
+          this.router.navigate(['/']);
+        }
       });
-    console.log(userDto);
   }
 }

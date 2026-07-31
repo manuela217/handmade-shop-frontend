@@ -7,24 +7,19 @@ import { SessionStorageService } from './session-storage.service';
 })
 export class HeaderService {
 
-  private token = '';
-  public headers:HttpHeaders = new HttpHeaders;
-
   constructor(
-    private sessionStorage:SessionStorageService,
-  ) {
+    private sessionStorage: SessionStorageService,
+  ) {}
+
+  getHeaders(): HttpHeaders {
 
     const jwtClient = this.sessionStorage.getItem('token');
 
-    if (jwtClient) {
-      this.token = jwtClient.token;
-      this.headers = new HttpHeaders(
-        {
-          //'Content-Type':'application/json',
-          'Authorization':`${this.token}`
-        }
-      );
-    }
+    return new HttpHeaders({
+      //'Content-Type': 'application/json',
+      'Authorization': jwtClient ? jwtClient.token : ''
+    });
 
   }
+
 }

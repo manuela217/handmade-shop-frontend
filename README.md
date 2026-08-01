@@ -202,10 +202,14 @@ Toda la comunicación se realiza mediante peticiones HTTP utilizando **HttpClien
 - Implementación de HttpInterceptor para la gestión automática del JWT
 - Gestión automática de expiración del token
 - Gestión centralizada de errores HTTP
-- Pantalla de historial de pedidos del usuario
+- Perfil de usuario editable
+- Historial de pedidos desde el perfil de usuario
+- Gestión de usuarios desde el panel de administración
+- Gestión de pedidos desde el panel de administración
+- Buscador y filtros avanzados de productos
 - Mejora de componentes reutilizables
+- Mejora de la accesibilidad y experiencia de usuario
 - Tests unitarios
-- Mejora de la accesibilidad
 
 ---
 

@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SessionStorageService {
-  constructor() { }
 
   setItem(key : string, value : any){
     sessionStorage.setItem(key,JSON.stringify(value));

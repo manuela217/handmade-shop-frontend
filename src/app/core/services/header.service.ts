@@ -16,7 +16,6 @@ export class HeaderService {
     const jwtClient = this.sessionStorage.getItem('token');
 
     return new HttpHeaders({
-      //'Content-Type': 'application/json',
       'Authorization': jwtClient ? jwtClient.token : ''
     });
 

@@ -10,25 +10,18 @@ export class ShoppingCartService {
 
   itemList:ShoppingCart [] = [];
 
-  constructor() {}
-
   addItemCart(shoppingCart:ShoppingCart) {
     this.items.set(shoppingCart.productId,shoppingCart);
   }
 
   deleteItemCart(productId:number) {
     this.items.delete(productId);
-    this.items.forEach(
-      (valor,clave)=> {
-        console.log("Esta es la clave y su valor: " + clave,valor);
-      }
-    );
   }
 
   totalCart() {
     let totalCart:number = 0;
     this.items.forEach(
-      (item,clave)=> {
+      item=> {
         totalCart += item.getTotalPriceItem();
       }
     );
@@ -38,7 +31,7 @@ export class ShoppingCartService {
   convertToListFromMap() {
     this.itemList.splice(0,this.itemList.length);
     this.items.forEach(
-      (item,clave) => {
+      item => {
         this.itemList.push(item);
       }
     );

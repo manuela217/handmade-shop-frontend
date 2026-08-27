@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   standalone: false,
   templateUrl: './category-list.component.html',
 })
+
 export class CategoryListComponent implements OnInit {
 
   categories:Category [] = [];
@@ -17,7 +18,7 @@ export class CategoryListComponent implements OnInit {
     private categoryService:CategoryService,
     private toastr:ToastrService,
     private cdr: ChangeDetectorRef
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.listCategories();
@@ -26,7 +27,6 @@ export class CategoryListComponent implements OnInit {
   listCategories() {
     this.categoryService.getCategoryList().subscribe({
       next: (data) => {
-        console.log(data);
         this.categories = data;
         this.cdr.detectChanges();
       },

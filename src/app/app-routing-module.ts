@@ -5,8 +5,8 @@ import { ProductListComponent } from './features/admin/products/product-list/pro
 import { ProductAddComponent } from './features/admin/products/product-add/product-add.component';
 import { ProductEditComponent } from './features/admin/products/product-edit/product-edit.component';
 import { CategoryListComponent } from './features/admin/categories/category-list/category-list.component';
-import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component/category-add.component';
-import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
+import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component';
+import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component';
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
 import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';

@@ -1,14 +1,16 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CategoryService } from '../../../../../core/services/category.service';
-import { Category } from '../../../../../shared/models/category';
+import { CategoryService } from '../../../../core/services/category.service';
+import { Category } from '../../../../shared/models/category';
+
 
 @Component({
   selector: 'app-category-edit',
   standalone: false,
   templateUrl: './category-edit.component.html',
 })
+
 export class CategoryEditComponent implements OnInit {
 
   id?: number;
@@ -29,16 +31,19 @@ export class CategoryEditComponent implements OnInit {
   getCategoryById() {
     this.activatedRoute.params.subscribe(
       category => {
-        let id = category['id'];
+        const id = category['id'];
         if(id) {
-          this.categoryService.getCategoryById(id).subscribe(
-            data => {
+          this.categoryService.getCategoryById(id).subscribe({
+            next: (data) => {
               this.id = data.id;
               this.name = data.name;
-
               this.cdr.detectChanges();
-            }
-          )
+            },
+            error: (err) => {
+              console.error('ERROR:', err);
+              this.toastr.error('No se pudo cargar la categoría', 'Error');
+            }   
+          });
         }
       }
     );

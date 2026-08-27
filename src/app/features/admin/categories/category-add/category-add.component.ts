@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../../../../core/services/category.service';
+import { Component } from '@angular/core';
+import { CategoryService } from '../../../../core/services/category.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Category } from '../../../../../shared/models/category';
+import { Category } from '../../../../shared/models/category';
 
 @Component({
   selector: 'app-category-add',
   standalone: false,
   templateUrl: './category-add.component.html',
 })
-export class CategoryAddComponent implements OnInit {
 
-  id?: number;
+export class CategoryAddComponent {
+
   name:string = '';
 
   constructor(
@@ -20,14 +20,11 @@ export class CategoryAddComponent implements OnInit {
     private router:Router,
   ) {}
 
-  ngOnInit(): void {
-  }
-
   addCategory() {
-    let category = new Category(null as any, this.name);
+    const category = new Category(null as any, this.name);
 
     this.categoryService.createCategory(category).subscribe({
-      next: (data) => {
+      next: () => {
         this.toastr.success('Categoría añadida correctamente', 'Éxito');
         this.router.navigate(['/admin/categories']);
       },

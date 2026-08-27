@@ -1,103 +1,95 @@
 <div class="bg-[#efe8da] min-h-screen pt-24 px-6">
 
-    <!-- Header admin -->
-    <app-header-admin></app-header-admin>
+  <!-- Header admin -->
+  <app-header-admin></app-header-admin>
   
-    <!-- Breadcrumb -->
-    <div class="max-w-7xl mx-auto mb-6">
+  <!-- Breadcrumb -->
+  <div class="max-w-7xl mx-auto mb-6">
   
-      <nav class="flex items-center gap-2 text-sm text-[#8d917b]">
+    <nav class="flex items-center gap-2 text-sm text-[#8d917b]">
   
-        <a
-          routerLink="/"
-          class="hover:text-[#756c59] transition">
-          Inicio
-        </a>
-  
-        <span>/</span>
-  
-        <span class="text-[#756c59] font-medium">
-          Categorías
-        </span>
-  
-      </nav>
-  
-    </div>
-  
-    <!-- Botón crear -->
-    <div class="max-w-7xl mx-auto mb-6">
-  
-      <button
-        class="bg-[#8d917b] text-white px-4 py-2 rounded-lg hover:bg-[#756c59] transition"
-        routerLink="/admin/categories/add"
+      <a
+        routerLink="/"
+        class="hover:text-[#756c59] transition"
       >
-        Crear categoría
-      </button>
+        Inicio
+      </a>
   
-    </div>
+      <span>/</span>
   
-    <!-- Tabla -->
-    <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+      <span class="text-[#756c59] font-medium">
+        Categorías
+      </span>
   
-      <table class="min-w-full text-sm text-left">
+    </nav>
   
-        <thead class="bg-[#d3c7b6] text-[#756c59]">
+  </div>
   
+  <!-- Botón crear -->
+  <div class="max-w-7xl mx-auto mb-6">
+    <button
+      class="bg-[#8d917b] text-white px-4 py-2 rounded-lg hover:bg-[#756c59] transition"
+      routerLink="/admin/categories/add"
+    >
+      Crear categoría
+    </button>
+  </div>
+  
+  <!-- Tabla -->
+  <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+  
+    <table class="min-w-full text-sm text-left">
+  
+      <thead class="bg-[#d3c7b6] text-[#756c59]">
           <tr>
-  
             <th class="px-6 py-3">
               Nombre
             </th>
-  
             <th class="px-6 py-3 text-center">
               Editar
             </th>
-  
             <th class="px-6 py-3 text-center">
               Eliminar
             </th>
-  
           </tr>
+      </thead>
   
-        </thead>
+      <tbody class="divide-y divide-gray-100">
   
-        <tbody class="divide-y divide-gray-100">
+        <tr
+          *ngFor="let category of categories"
+          class="hover:bg-[#efe8da] transition">
   
-          <tr
-            *ngFor="let category of categories"
-            class="hover:bg-[#efe8da] transition">
+          <td class="px-6 py-4 text-[#756c59] font-medium">
+            {{ category.name }}
+          </td>
   
-            <td class="px-6 py-4 text-[#756c59] font-medium">
-              {{ category.name }}
-            </td>
+          <!-- Editar -->
+          <td class="px-6 py-4 text-center">
+            <button
+              class="bg-[#bfc4ab] text-[#756c59] px-3 py-1 rounded-md hover:bg-[#8d917b] hover:text-white transition"
+              [routerLink]="['/admin/categories/edit', category.id]"
+            >
+              Editar
+            </button>
+          </td>
   
-            <!-- Editar -->
-            <td class="px-6 py-4 text-center">
-              <button
-                class="bg-[#bfc4ab] text-[#756c59] px-3 py-1 rounded-md hover:bg-[#8d917b] hover:text-white transition"
-                [routerLink]="['/admin/categories/edit', category.id]"
-              >
-                Editar
-              </button>
-            </td>
+          <!-- Eliminar -->
+          <td class="px-6 py-4 text-center">
+            <button
+              class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition"
+              (click)="deleteCategoryById(category.id)"
+            >
+              Eliminar
+            </button>
+          </td>
   
-            <!-- Eliminar -->
-            <td class="px-6 py-4 text-center">
-              <button
-                class="bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 transition"
-                (click)="deleteCategoryById(category.id)"
-                >
-                  Eliminar
-              </button>
+        </tr>
   
-            </td>
+      </tbody>
   
-          </tr>
-  
-        </tbody>
-  
-      </table>
-  
-    </div>
+    </table>
   
   </div>
+  
+</div>

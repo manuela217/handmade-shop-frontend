@@ -14,15 +14,14 @@ import { FormsModule } from '@angular/forms';
 import { ProductEditComponent } from './features/admin/products/product-edit/product-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CategoryListComponent } from './features/admin/categories/category-list/category-list.component';
-import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component/category-add.component';
-import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component/category-edit.component';
+import { CategoryAddComponent } from './features/admin/categories/category-add/category-add.component';
+import { CategoryEditComponent } from './features/admin/categories/category-edit/category-edit.component';
 import { DetailProductComponent } from './features/products/detail-product/detail-product.component';
 import { SummaryOrderComponent } from './features/cart/summary-order/summary-order.component';
 import { OrderConfirmationComponent } from './features/orders/order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './features/auth/pages/register/register.component';
 import { LoginComponent } from './features/auth/pages/login/login.component';
 import { LogoutComponent } from './features/auth/pages/logout/logout.component';
-
 
 @NgModule({
   declarations: [

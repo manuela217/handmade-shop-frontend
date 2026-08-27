@@ -10,6 +10,7 @@ import { CategoryService } from '../../../../core/services/category.service';
   standalone: false,
   templateUrl: './product-edit.component.html',
 })
+
 export class ProductEditComponent implements OnInit {
   id?: number;
   code:string = '';
@@ -17,10 +18,9 @@ export class ProductEditComponent implements OnInit {
   description:string = '';
   price:number = 0;
   urlImage:string = '';
-  userId:string = '1'; //temporal
+  userId: string = '';
   categoryId:string = '';
   selectFile!: File;
-
   categories: Category[] = [];
 
   ngOnInit(): void {
@@ -35,14 +35,12 @@ export class ProductEditComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private toastr:ToastrService,
     private categoryService: CategoryService,
-    ) {
-
-  }
+  ) {}
   
   getProductById() {
     this.activatedRoute.params.subscribe(
       prod => {
-        let id = prod['id'];
+        const id = prod['id'];
         if (id) {
           this.productService.getProductById(id).subscribe(
             data => {
@@ -63,7 +61,6 @@ export class ProductEditComponent implements OnInit {
   }
 
   updateProduct() {
-
     const formData = new FormData();
   
     formData.append('id', this.id!.toString());
@@ -88,11 +85,14 @@ export class ProductEditComponent implements OnInit {
         this.toastr.error('No se pudo actualizar el producto','Error');
       }
     });
-  
   }
 
-  onFileSelect(event:any) {
-    this.selectFile = event.target.files[0];
+  onFileSelect(event: Event) {
+    const input = event.target as HTMLInputElement;
+  
+    if (input.files && input.files.length > 0) {
+      this.selectFile = input.files[0];
+    }
   }
 
   getCategories() {

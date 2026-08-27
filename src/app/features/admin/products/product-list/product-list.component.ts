@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   standalone: false,
   templateUrl: './product-list.component.html',
 })
+
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
@@ -31,12 +32,12 @@ export class ProductListComponent implements OnInit {
       },
       error: (err) => {
         console.error('ERROR:', err);
+        this.toastr.error('No se pudieron cargar los productos', 'Error');
       }
     });
   }
 
   deleteProductById(id:number) {
-
     Swal.fire({
       title: "¿Eliminar producto?",
       text: "Esta acción no se puede deshacer",
@@ -61,4 +62,5 @@ export class ProductListComponent implements OnInit {
     }
   });
   }
+
 }

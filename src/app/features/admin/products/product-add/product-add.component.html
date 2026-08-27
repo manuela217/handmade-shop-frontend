@@ -1,73 +1,69 @@
 <div class="bg-[#efe8da] min-h-screen pt-24 px-6">
 
-    <!-- Header admin -->
-    <app-header-admin></app-header-admin>
+  <!-- Header admin -->
+  <app-header-admin></app-header-admin>
 
-    <!-- Breadcrumb -->
-    <div class="max-w-7xl mx-auto mb-6">
+  <!-- Breadcrumb -->
+  <div class="max-w-7xl mx-auto mb-6">
 
-        <nav class="flex items-center gap-2 text-sm text-[#8d917b]">
+      <nav class="flex items-center gap-2 text-sm text-[#8d917b]">
     
         <a 
             routerLink="/admin/products"
-            class="hover:text-[#756c59] transition">
-            Productos
+            class="hover:text-[#756c59] transition"
+        >
+          Productos
         </a>
-    
+      
         <span>/</span>
-    
+      
         <span class="text-[#756c59] font-medium">
             Crear producto
         </span>
     
-        </nav>
+      </nav>
     
+  </div>
+  
+  <!-- Card formulario -->
+  <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm p-8">
+  
+    <!-- Título -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-semibold text-[#756c59]">
+        Crear producto
+      </h1>
+      <p class="text-sm text-[#8d917b] mt-1">
+        Añade un nuevo producto a la tienda
+      </p>
     </div>
   
-    <!-- Card formulario -->
-    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm p-8">
+    <!-- Formulario -->
+    <form class="space-y-6" (ngSubmit)="addProduct()" enctype="multipart/form-data">
+
+      <!-- Nombre -->
+      <div>
+        <label class="block text-sm font-medium text-[#756c59] mb-2" for="nombre">
+          Nombre
+        </label>
   
-      <!-- Título -->
-      <div class="mb-8">
-  
-        <h1 class="text-2xl font-semibold text-[#756c59]">
-          Crear producto
-        </h1>
-  
-        <p class="text-sm text-[#8d917b] mt-1">
-          Añade un nuevo producto a la tienda
-        </p>
-  
+        <input
+          [(ngModel)]="name"
+          type="text"
+          placeholder="Introduce el nombre del producto"
+          class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+          id="nombre"
+          name="nombre"
+          autocomplete="off"
+          required
+        >
       </div>
-  
-      <!-- Formulario -->
-      <form class="space-y-6" (ngSubmit)="addProduct()" enctype="multipart/form-data">
 
-        <!-- Nombre -->
-        <div>
-  
-            <label class="block text-sm font-medium text-[#756c59] mb-2" for="nombre">
-                Nombre
-            </label>
-  
-            <input
-                [(ngModel)]="name"
-                type="text"
-                placeholder="Introduce el nombre del producto"
-                class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
-                id="nombre"
-                name="nombre"
-                autocomplete="off"
-                required
-            >
-  
-        </div>
-
-        <!-- Código -->
-        <div>
-          <label class="block text-sm font-medium text-[#756c59] mb-2" for="codigo">
-            Código
-          </label>
+      <!-- Código -->
+      <div>
+        <label class="block text-sm font-medium text-[#756c59] mb-2" for="codigo">
+          Código
+        </label>
       
         <input
           [(ngModel)]="code"
@@ -79,108 +75,102 @@
           autocomplete="off"
           required
         >
+      </div>
+  
+      <!-- Descripción -->
+      <div>
+        <label class="block text-sm font-medium text-[#756c59] mb-2" for="descripcion">
+          Descripción
+        </label>
+  
+        <textarea
+          [(ngModel)]="description"
+          id="descripcion"
+          name="descripcion"
+          rows="4"
+          placeholder="Describe el producto"
+          class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+          autocomplete="off"
+          required
+        >
+        </textarea>
+      </div>
+  
+      <!-- Precio -->
+      <div>
+        <label class="block text-sm font-medium text-[#756c59] mb-2" for="precio">
+          Precio
+        </label>
+  
+        <input
+          [(ngModel)]="price"
+          type="number"
+          step="any"
+          id="precio"
+          name="precio"
+          placeholder="0.00"
+          class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+          autocomplete="off"
+          required
+        >
+      </div>
 
-        </div>
-  
-        <!-- Descripción -->
-        <div>
-  
-          <label class="block text-sm font-medium text-[#756c59] mb-2" for="descripcion">
-            Descripción
-          </label>
-  
-          <textarea
-            [(ngModel)]="description"
-            id="descripcion"
-            name="descripcion"
-            rows="4"
-            placeholder="Describe el producto"
-            class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
-            autocomplete="off"
-            required
-          ></textarea>
-  
-        </div>
-  
-        <!-- Precio -->
-        <div>
-  
-          <label class="block text-sm font-medium text-[#756c59] mb-2" for="precio">
-            Precio
-          </label>
-  
-          <input
-            [(ngModel)]="price"
-            type="number"
-            step="any"
-            id="precio"
-            name="precio"
-            placeholder="0.00"
-            class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
-            autocomplete="off"
-            required
-          >
-  
-        </div>
+      <!-- Categoría -->
+      <div>
+        <label
+          class="block text-sm font-medium text-[#756c59] mb-2"
+          for="category"
+        >
+          Categoría
+        </label>
 
-        <!-- Categoría -->
-        <div>
-          <label
-            class="block text-sm font-medium text-[#756c59] mb-2"
-            for="category">
-            Categoría
-          </label>
+        <select
+          [(ngModel)]="categoryId"
+          id="category"
+          name="category"
+          class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
+          required
+        >
 
-          <select
-            [(ngModel)]="categoryId"
-            id="category"
-            name="category"
-            class="w-full rounded-xl border border-[#d3c7b6] px-4 py-3 bg-[#faf8f4] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
-            required>
+          <option value="">
+            Selecciona una categoría
+          </option>
 
-            <option value="">
-              Selecciona una categoría
-            </option>
-
-            <option
-              *ngFor="let category of categories"
-              [value]="category.id">
-              {{ category.name }}
-            </option>
-          </select>
-        </div>
+          <option
+            *ngFor="let category of categories"
+            [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
   
-        <!-- Imagen -->
-        <div>
+      <!-- Imagen -->
+      <div>
+        <label class="block text-sm font-medium text-[#756c59] mb-2" for="img">
+          Imagen
+        </label>
   
-          <label class="block text-sm font-medium text-[#756c59] mb-2" for="img">
-            Imagen
-          </label>
+        <input
+          type="file"
+          class="block w-full text-sm text-[#756c59] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-[#bfc4ab] file:text-[#756c59] hover:file:bg-[#8d917b] hover:file:text-white"
+          id="img"
+          name="img"
+          (change)="onFileSelect($event)"
+        >
+      </div>
   
-          <input
-            type="file"
-            class="block w-full text-sm text-[#756c59] file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-[#bfc4ab] file:text-[#756c59] hover:file:bg-[#8d917b] hover:file:text-white"
-            id="img"
-            name="img"
-            (change)="onFileSelect($event)"
-          >
+      <!-- Botón -->
+      <div class="pt-4">
+        <button
+          type="submit"
+          class="bg-[#8d917b] text-white px-6 py-3 rounded-xl hover:bg-[#756c59] transition shadow-sm"
+        >
+          Guardar producto
+        </button>
+      </div>
   
-        </div>
-  
-        <!-- Botón -->
-        <div class="pt-4">
-  
-          <button
-            type="submit"
-            class="bg-[#8d917b] text-white px-6 py-3 rounded-xl hover:bg-[#756c59] transition shadow-sm"
-          >
-            Guardar producto
-          </button>
-  
-        </div>
-  
-      </form>
-  
-    </div>
+    </form>
   
   </div>
+  
+</div>

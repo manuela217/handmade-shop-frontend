@@ -6,13 +6,14 @@ import { SessionStorageService } from '../../../core/services/session-storage.se
   standalone: false,
   templateUrl: './navbar.component.html',
 })
+
 export class Navbar {
 
   constructor(
-    private sessionStorage:SessionStorageService,
+    private sessionStorageService:SessionStorageService,
   ) {}
 
   isLoggedIn(): boolean {
-    return this.sessionStorage.getItem('token') !== null;
+    return this.sessionStorageService.getItem('token') !== null;
   }
 }

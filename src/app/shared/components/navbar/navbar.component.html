@@ -1,40 +1,42 @@
 <!-- NAVBAR -->
 <nav class="bg-[#d3c7b6] text-[#756c59] fixed top-0 w-full z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
   
-      <!-- Logo -->
-      <a 
+    <!-- Logo -->
+    <a 
       class="text-3xl md:text-4xl text-[#756c59] tracking-wide flex items-center gap-2 hover:opacity-80 transition cursor-pointer"
       style="font-family: 'Crafty Girls', cursive;"
       routerLink="/"
+    >
+      Handmade Shop
+    </a>
+  
+    <!-- Search
+    <form class="flex gap-2">
+      <input 
+        type="search" 
+        placeholder="Buscar..." 
+        class="px-3 py-1 rounded-lg border border-[#bfc4ab] bg-[#efe8da] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
       >
-        Handmade Shop
-      </a>
+      <button class="px-3 py-1 bg-[#8d917b] text-white rounded-lg hover:bg-[#756c59] transition">
+        Buscar
+      </button>
+    </form>
+    -->
   
-      <!-- Search -->
-      <form class="flex gap-2">
-        <input 
-          type="search" 
-          placeholder="Buscar..." 
-          class="px-3 py-1 rounded-lg border border-[#bfc4ab] bg-[#efe8da] focus:outline-none focus:ring-2 focus:ring-[#8d917b]"
-        >
-        <button class="px-3 py-1 bg-[#8d917b] text-white rounded-lg hover:bg-[#756c59] transition">
-          Buscar
-        </button>
-      </form>
-  
-      <!-- Links -->
-      <div class="flex gap-6">
-        @if (!isLoggedIn()) {
-          <a routerLink="/user/login"> Login </a>
-        }
+    <!-- Links -->
+    <div class="flex gap-6">
+      @if (!isLoggedIn()) {
+        <a routerLink="/user/login"> Iniciar sesión </a>
+      }
         
-        @if (isLoggedIn()) {
-          <a routerLink="/cart/summary"> Carrito </a>
-        
-          <a routerLink="/logout"> Cerrar sesión </a>
-        }
-      </div>
-  
+      @if (isLoggedIn()) {
+        <a routerLink="/cart/summary"> Carrito </a>
+        <a routerLink="/logout"> Cerrar sesión </a>
+      }
     </div>
-  </nav>
+  
+  </div>
+
+</nav>

@@ -7,7 +7,7 @@ export class ShoppingCart {
         public price:number
     ) {}
 
-    getTotalPriceItem() {
-        return this.quantity*this.price;
+    getTotalPriceItem(): number {
+        return this.quantity * this.price;
     }
 }

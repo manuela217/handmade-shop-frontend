@@ -5,8 +5,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-logout',
   standalone: false,
-  templateUrl: './logout.component.html',
+  template: '',
 })
+
 export class LogoutComponent implements OnInit {
 
   constructor(
@@ -15,9 +16,7 @@ export class LogoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('LogoutComponent: ' + this.sessionStorage.getItem('token'));
     this.sessionStorage.removeItem('token');
-    console.log('LogoutComponent eliminado: ' + this.sessionStorage.getItem('token'));
     this.router.navigate(['/']);
   }
 }

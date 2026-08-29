@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from '../../../../core/services/authentication.service';
 import { Router } from '@angular/router';
 import { User } from '../../../../shared/models/user';
@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   standalone: false,
   templateUrl: './register.component.html',
 })
-export class RegisterComponent implements OnInit {
+
+export class RegisterComponent {
 
   username:string = '';
   name:string = '';
@@ -20,10 +21,6 @@ export class RegisterComponent implements OnInit {
   cellphone:string = '';
   password:string = '';
   userType:string = '';
-
-  ngOnInit(): void {
-
-  }
   
   constructor(
     private authentication:AuthenticationService,
@@ -34,11 +31,21 @@ export class RegisterComponent implements OnInit {
   register() {
     this.username = this.email;
     this.userType = UserType.USER;
-    const user = new User (0, this.username,this.name,this.surname,this.email,this.address,this.cellphone,this.password,this.userType);
+
+    const user = new User (
+      null, 
+      this.username,
+      this.name,
+      this.surname,
+      this.email,
+      this.address,
+      this.cellphone,
+      this.password,
+      this.userType);
+      
     this.authentication.register(user).subscribe({
       next: (res) => {
         this.toastr.success('Usuario registrado', 'Éxito');
-        console.log(res);
         this.router.navigate(['user/login']);
       },
       error: () => {

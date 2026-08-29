@@ -10,6 +10,7 @@ import { HomeService } from '../../../core/services/home.service';
   standalone: false,
   templateUrl: './detail-product.component.html',
 })
+
 export class DetailProductComponent implements OnInit {
 
   id:number = 0;
@@ -29,7 +30,7 @@ export class DetailProductComponent implements OnInit {
     private shoppingCartService:ShoppingCartService,
     private cdr: ChangeDetectorRef,
     private toastr:ToastrService,
-  ){}
+  ) {}
 
   getProductById() {
     this.activatedRoute.params.subscribe(
@@ -53,18 +54,15 @@ export class DetailProductComponent implements OnInit {
   }
 
   addCart(id:number) {
-    console.log('id producto: ',id);
-    console.log('nombre producto: ',this.name);
-    console.log('precio producto: ',this.price);
-    console.log('cantidad producto: ',this.quantity);
-
-    let item = new ShoppingCart(id, this.name, this.quantity, this.price);
+    const item = new ShoppingCart(
+      id, 
+      this.name, 
+      this.quantity, 
+      this.price
+    );
 
     this.shoppingCartService.addItemCart(item);
-
-    console.log("Total carrito: ");
-    console.log(this.shoppingCartService.totalCart());
-
     this.toastr.success('Producto añadido al carrito', 'Carrito de compra');
   }
+
 }

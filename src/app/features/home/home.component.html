@@ -4,52 +4,53 @@
 
   <main class="flex-1 bg-[#efe8da] pt-24 px-6 pb-16">
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-    <div *ngFor="let p of products" class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
+      <div *ngFor="let p of products" class="group bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
 
-      <!-- Imagen + overlay -->
-      <div class="relative overflow-hidden">
+        <!-- Imagen + overlay -->
+        <div class="relative overflow-hidden">
 
-        <img 
-          src="{{ p.urlImage }}" 
-          class="w-full h-56 object-cover transition duration-500 group-hover:scale-110"
-        />
+          <img 
+            [src]="p.urlImage"
+            [alt]="p.name" 
+            class="w-full h-56 object-cover transition duration-500 group-hover:scale-110"
+          />
 
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-[#756c59]/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-[#756c59]/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
 
-          <button 
-            class="bg-white text-[#756c59] hover:bg-[#efe8da] px-4 py-2 rounded-xl font-medium shadow hover:bg-white transition"
-            [routerLink]="['/products/detail',p.id]"
+            <button 
+              class="bg-white text-[#756c59] hover:bg-[#efe8da] px-4 py-2 rounded-xl font-medium shadow transition"
+              [routerLink]="['/products/detail',p.id]"
             >
-            Ver producto
-          </button>
+              Ver producto
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Info -->
+        <div class="p-4">
+
+          <h2 class="text-sm font-medium text-[#756c59] leading-snug">
+            {{ p.name }}
+          </h2>
+
+          <p class="text-[#8d917b] font-semibold mt-2">
+            {{ p.price | number:'1.2-2' }} €
+          </p>
 
         </div>
 
       </div>
 
-      <!-- Info -->
-      <div class="p-4">
-
-        <h2 class="text-sm font-medium text-[#756c59] leading-snug">
-          {{ p.name }}
-        </h2>
-
-        <p class="text-[#8d917b] font-semibold mt-2">
-          {{ p.price | number:'1.2-2' }} €
-        </p>
-
-      </div>
-
     </div>
 
-  </div>
+  </main>
 
-</main>
-
-<!-- Footer -->
-<app-footer></app-footer>
+  <!-- Footer -->
+  <app-footer></app-footer>
 
 </div>

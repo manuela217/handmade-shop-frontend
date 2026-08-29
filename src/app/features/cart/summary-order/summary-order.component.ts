@@ -15,6 +15,7 @@ import { SessionStorageService } from '../../../core/services/session-storage.se
   standalone: false,
   templateUrl: './summary-order.component.html',
 })
+
 export class SummaryOrderComponent implements OnInit {
 
   items:ShoppingCart [] = [];
@@ -24,7 +25,7 @@ export class SummaryOrderComponent implements OnInit {
   email:string = '';
   address:string = '';
   orderProducts:OrderProduct [] = [];
-  userId:number = 1; // Temporal hasta implementar autenticación
+  userId: number = 0;
 
   constructor(
     private cartService:ShoppingCartService,
@@ -54,12 +55,11 @@ export class SummaryOrderComponent implements OnInit {
     );
 
     let order = new Order(null,new Date(),this.orderProducts,this.userId,OrderState.CANCELLED);
-    console.log('Pedido: ' + order.orderState);
     this.orderService.createOrder(order).subscribe({
       next: (data) => {
         this.router.navigate(['/orders/confirmation',data.id]);
       },
-      error: (err) => {
+      error: () => {
         this.toastr.error('No se pudo crear el pedido','Error');
       }
     });

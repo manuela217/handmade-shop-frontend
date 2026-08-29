@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../../core/services/order.service';
 import { ShoppingCartService } from '../../../core/services/shopping-cart.service';
-import { Toast, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { OrderState } from '../../../shared/enums/order-state';
 
 @Component({
@@ -31,13 +31,19 @@ export class OrderConfirmationComponent implements OnInit{
 
   confirmOrder() {
     this.orderService.updateOrderState(
-      this.orderId,OrderState.CONFIRMED
+      this.orderId,
+      OrderState.CONFIRMED
     )
     .subscribe({
       next: () => {
-       this.shoppingCartService.clearCart();
-       this.toastr.success('Compra realizada correctamente','Éxito');
+        this.shoppingCartService.clearCart();
+        this.toastr.success('Compra realizada correctamente','Éxito');
+      },
+      error: (err) => {
+        console.error('Error al confirmar el pedido:',err);
+        this.toastr.error('No se pudo confirmar el pedido','Error');
       }
     });
   }
+
 }

@@ -2,7 +2,9 @@
 
 Frontend de una plataforma e-commerce para productos artesanales desarrollado con **Angular** y **Tailwind CSS**.
 
-Este proyecto forma parte de mi portfolio como desarrolladora **Frontend / Full Stack Junior**, con el objetivo de demostrar conocimientos en desarrollo de aplicaciones, consumo de APIs REST, autenticación mediante JWT y organización de proyectos con Angular.
+La aplicación consume una API REST desarrollada con **Java 21 y Spring Boot**, formando parte de un proyecto Full Stack creado como proyecto de portfolio y aprendizaje.
+
+Su objetivo es aplicar conocimientos de desarrollo frontend, consumo de APIs REST, autenticación mediante JWT, gestión de rutas y organización modular de una aplicación Angular.
 
 > **Backend del proyecto:** https://github.com/manuela217/handmade-shop-backend
 
@@ -40,7 +42,7 @@ Este proyecto forma parte de mi portfolio como desarrolladora **Frontend / Full 
 
 El proyecto sigue una estructura modular basada en la separación de responsabilidades, facilitando el mantenimiento y la escalabilidad de la aplicación.
 
-```
+```text
 src/app
 ├── core
 │   ├── guards
@@ -59,7 +61,7 @@ src/app
 │   ├── categories
 │   ├── home
 │   ├── orders
-│   │   └──order-confirmaation
+│   │   └──order-confirmation
 │   └── products
 │   │   └──detail-product
 └──shared
@@ -85,7 +87,7 @@ Agrupa las distintas funcionalidades y vistas de la aplicación.
 
 **Shared**
 
-Incluye modelos, DTOs y elementos compartidos entre distintos módulos.
+Incluye modelos, DTOs y elementos compartidos entre distintas partes de la aplicación.
 
 ---
 
@@ -123,11 +125,12 @@ Tras iniciar sesión, cada usuario es redirigido automáticamente a la sección 
 - Visualización del catálogo
 - Carrito de compra
 - Realización de pedidos
+- Confirmación de compra
 
 ### Administrador
 
-- Gestión de categorías
-- Gestión de productos
+- Creación, edición y eliminación de categorías
+- Creación, edición y eliminación de productos
 
 ---
 
@@ -158,15 +161,14 @@ npm install
 
 ### Configuración
 
-La URL del backend se configura mediante los archivos de entorno de Angular.
+Actualmente, las URLs de los endpoints del backend están configuradas directamente en los servicios de Angular.
 
-Ejemplo:
+Por defecto, el backend debe estar disponible en:
 
-```ts
-export const environment = {
-  apiUrl: 'http://localhost:8080/api/v1'
-};
+```text
+http://localhost:8080
 ```
+Antes de ejecutar el frontend, asegúrate de tener el backend de Handmade Shop iniciado.
 
 ---
 
@@ -199,7 +201,7 @@ Toda la comunicación se realiza mediante peticiones HTTP utilizando **HttpClien
 
 ## Próximas mejoras
 
-- Implementación de HttpInterceptor para la gestión automática del JWT
+- Implementación de un HttpInterceptor para centralizar la gestión automática del JWT
 - Gestión automática de expiración del token
 - Gestión centralizada de errores HTTP
 - Perfil de usuario editable
@@ -220,7 +222,7 @@ Durante el desarrollo de este proyecto se han aplicado conceptos como:
 - Angular
 - TypeScript
 - Consumo de APIs REST
-- Gestión del estado de autenticación
+- Gestión de sesión y autenticación
 - Guards
 - Routing
 - Componentes reutilizables
@@ -233,11 +235,11 @@ Durante el desarrollo de este proyecto se han aplicado conceptos como:
 
 Desarrollado por Manuela Mendoza Barba
 
-Proyecto de portfolio como desarrolladora frontend/fullstack junior
+Proyecto de portfolio como desarrolladora Frontend / Full Stack Junior
 
 - GitHub: https://github.com/manuela217
 - LinkedIn: https://www.linkedin.com/in/manuela-mendoza-barba/
 
 ---
 
-> Este proyecto forma parte de mi portfolio personal y tiene un propósito únicamente educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Angular y desarrollo Full Stack.
+> Este proyecto forma parte de mi portfolio personal y tiene un propósito educativo y demostrativo. Su desarrollo continúa con nuevas funcionalidades y mejoras conforme avanzo en mi aprendizaje de Angular y desarrollo Full Stack.
